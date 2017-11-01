@@ -21,6 +21,11 @@
           <file>file://$MODULE_DIR$/src/main/resources/spring/spring-dao.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring/spring-service.xml</file>
         </fileset>
+        <fileset id="web springMVC servlet context" name="MVC springMVC servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-dao.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-service.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-controller.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
