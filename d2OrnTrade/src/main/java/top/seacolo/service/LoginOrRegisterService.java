@@ -1,6 +1,7 @@
 package top.seacolo.service;
 
 import top.seacolo.entity.User;
+import top.seacolo.util.ReturnSty;
 
 import java.util.HashMap;
 
@@ -12,7 +13,7 @@ public interface LoginOrRegisterService {
      * @param user_pwd
      * @return
      */
-    boolean login(String user_mail, String user_pwd);
+    ReturnSty login(String user_mail, String user_pwd);
 
     /**
      * 注册
@@ -22,12 +23,12 @@ public interface LoginOrRegisterService {
      * @param user_mail
      * @return
      */
-    boolean register(String user_name, String user_pwd, String user_mail);
+    ReturnSty register(String user_name, String user_pwd, String user_mail);
 
     /**
      * 查找该用户名或邮箱或手机号码是否被使用
      * @param map
      * @return
      */
-    boolean isExistUser(HashMap<String,Object> map);
+    ReturnSty isExistUser(HashMap<String,Object> map);
 }

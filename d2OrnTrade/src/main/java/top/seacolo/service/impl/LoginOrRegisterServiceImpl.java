@@ -7,7 +7,9 @@ import top.seacolo.entity.User;
 import top.seacolo.entity.User_level;
 import top.seacolo.entity.User_role;
 import top.seacolo.service.LoginOrRegisterService;
+import top.seacolo.util.ConstantUtil;
 import top.seacolo.util.RandomIdUtil;
+import top.seacolo.util.ReturnSty;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -26,8 +28,9 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @return
      */
     @Override
-    public boolean login(String user_mail, String user_pwd) {
-        return false;
+    public ReturnSty login(String user_mail, String user_pwd) {
+        ReturnSty returnSty = new ReturnSty();
+        return returnSty;
     }
 
     /**
@@ -39,7 +42,9 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @return
      */
     @Override
-    public boolean register(String user_name, String user_pwd, String user_mail) {
+    public ReturnSty register(String user_name, String user_pwd, String user_mail) {
+        ReturnSty returnSty = new ReturnSty();
+
         //需要封装的参数
         // user_id, user_name, user_pwd, user_mail, register_date, role_id, lv_id
         String user_id = RandomIdUtil.getID();
@@ -52,9 +57,13 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
         User user = new User(user_id, user_name, user_pwd, user_mail, register_date, user_role, user_level);
         int count = userLoginAndRegisterDao.insertOneUser(user);
         if(count > 0){
-            return true;
+            returnSty.setRetCode(ConstantUtil.REGISTER_SUCCESS);
+            returnSty.setRetMessage("注册成功！");
+            return returnSty;
         }else {
-            return false;
+            returnSty.setRetCode(ConstantUtil.REGISTER_FAIL);
+            returnSty.setRetMessage("注册失败！");
+            return returnSty;
         }
 
     }
@@ -70,7 +79,8 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @return
      */
     @Override
-    public boolean isExistUser(HashMap<String, Object> map) {
-        return false;
+    public ReturnSty isExistUser(HashMap<String, Object> map) {
+        ReturnSty returnSty = new ReturnSty();
+        return returnSty;
     }
 }
