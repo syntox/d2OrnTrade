@@ -1,6 +1,7 @@
 package top.seacolo.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 求购饰品类
@@ -8,7 +9,7 @@ import java.util.Date;
 public class Tobuy_orn {
     private String tobuy_orn_id;                //求购饰品编号
     private double tobuy_orn_price;             //求购价格
-    private Date tobuy_orn_date;                //求购发布日期
+    private Timestamp tobuy_orn_date;                //求购发布日期
     private User user;                          //求购用户 FK
     private Orn_information orn_information;    //饰品信息 FK
     private Tobuy_state tobuy_state;            //求购状态 FK
@@ -29,11 +30,11 @@ public class Tobuy_orn {
         this.tobuy_orn_price = tobuy_orn_price;
     }
 
-    public Date getTobuy_orn_date() {
+    public Timestamp getTobuy_orn_date() {
         return tobuy_orn_date;
     }
 
-    public void setTobuy_orn_date(Date tobuy_orn_date) {
+    public void setTobuy_orn_date(Timestamp tobuy_orn_date) {
         this.tobuy_orn_date = tobuy_orn_date;
     }
 

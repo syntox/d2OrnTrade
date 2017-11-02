@@ -1,13 +1,14 @@
 package top.seacolo.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 用户收藏类
  */
 public class User_favorite {
     private String favorite_id;             //收藏编号
-    private Date favorite_date;             //收藏日期
+    private Timestamp favorite_date;             //收藏日期
     private User user;                      //用户 FK
     private Currency_orn currency_orn;      //流通饰品 FK
 
@@ -19,11 +20,11 @@ public class User_favorite {
         this.favorite_id = favorite_id;
     }
 
-    public Date getFavorite_date() {
+    public Timestamp getFavorite_date() {
         return favorite_date;
     }
 
-    public void setFavorite_date(Date favorite_date) {
+    public void setFavorite_date(Timestamp favorite_date) {
         this.favorite_date = favorite_date;
     }
 

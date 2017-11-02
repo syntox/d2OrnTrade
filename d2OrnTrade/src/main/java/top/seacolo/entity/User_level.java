@@ -2,6 +2,11 @@ package top.seacolo.entity;
 
 /**
  * 用户等级类
+ *
+ * ('1', '白银用户', '');
+ * ('2', '黄金用户', '');
+ * ('3', '白金用户', '');
+ * ('4', '钻石用户', '');
  */
 public class User_level {
     private int lv_id;        //等级编号
@@ -30,5 +35,12 @@ public class User_level {
 
     public void setLv_desc(String lv_desc) {
         this.lv_desc = lv_desc;
+    }
+
+    public User_level() {
+    }
+
+    public User_level(int lv_id) {
+        this.lv_id = lv_id;
     }
 }

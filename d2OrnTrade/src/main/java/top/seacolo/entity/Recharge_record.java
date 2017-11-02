@@ -1,6 +1,7 @@
 package top.seacolo.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 充值记录类
@@ -9,7 +10,7 @@ public class Recharge_record {
     private String recharge_record_id;      //充值记录编号
     private double recharge_money;          //充值金额
     private double before_recharge_money;   //充值前金额
-    private Date recharge_date;             //充值日期
+    private Timestamp recharge_date;             //充值日期
     private User user;                      //用户 FK
 
     public String getRecharge_record_id() {
@@ -36,11 +37,11 @@ public class Recharge_record {
         this.before_recharge_money = before_recharge_money;
     }
 
-    public Date getRecharge_date() {
+    public Timestamp getRecharge_date() {
         return recharge_date;
     }
 
-    public void setRecharge_date(Date recharge_date) {
+    public void setRecharge_date(Timestamp recharge_date) {
         this.recharge_date = recharge_date;
     }
 

@@ -1,6 +1,7 @@
 package top.seacolo.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 交易历史类
@@ -8,7 +9,7 @@ import java.util.Date;
 public class Trade_history {
     private String trade_history_id;        //交易历史编号
     private double trade_history_price;     //交易金额
-    private Date trade_history_date;        //交易日期
+    private Timestamp trade_history_date;        //交易日期
     private User buyer;                     //买方    FK
     private User seller;                    //卖方    FK
     private Currency_orn currency_orn;      //流通饰品 FK
@@ -30,11 +31,11 @@ public class Trade_history {
         this.trade_history_price = trade_history_price;
     }
 
-    public Date getTrade_history_date() {
+    public Timestamp getTrade_history_date() {
         return trade_history_date;
     }
 
-    public void setTrade_history_date(Date trade_history_date) {
+    public void setTrade_history_date(Timestamp trade_history_date) {
         this.trade_history_date = trade_history_date;
     }
 

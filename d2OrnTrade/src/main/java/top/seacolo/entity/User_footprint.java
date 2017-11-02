@@ -1,13 +1,14 @@
 package top.seacolo.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 用户足迹类
  */
 public class User_footprint {
     private String footprint_id;            //足迹编号
-    private Date footprint_date;            //足迹添加日期
+    private Timestamp footprint_date;            //足迹添加日期
     private Currency_orn currency_orn;      //流通饰品 FK
     private User user;                      //用户 FK
 
@@ -19,11 +20,11 @@ public class User_footprint {
         this.footprint_id = footprint_id;
     }
 
-    public Date getFootprint_date() {
+    public Timestamp getFootprint_date() {
         return footprint_date;
     }
 
-    public void setFootprint_date(Date footprint_date) {
+    public void setFootprint_date(Timestamp footprint_date) {
         this.footprint_date = footprint_date;
     }
 

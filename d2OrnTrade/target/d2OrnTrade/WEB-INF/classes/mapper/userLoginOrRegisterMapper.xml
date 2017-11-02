@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.seacolo.dao.UserLoginAndRegisterDao">
+    <!--按照用户或邮箱或手机号码查找用户-->
+    <!--Map: user_name: ***
+             user_mail: ***@***.***
+             user_phonenumber: ***********
+    -->
+    <select id="SelectOneUser" parameterType="Map" resultMap="getUser">
+        SELECT
+            u.user_id          user_id,
+            u.user_name        user_name,
+            u.user_pwd         user_pwd,
+            u.user_mail        user_mail,
+            u.user_phonenumber user_phonenumber,
+            u.user_pic         user_pic,
+            u.register_date    register_date,
+            ur.role_name       role_name,
+            ul.lv_name         lv_name
+        FROM user u,
+             user_role ur,
+             user_level ul
+        WHERE u.role_id = ur.role_id
+              AND u.lv_id = ul.lv_id
+        <if test="user_name != null">
+            AND u.user_name = #{user_name}
+        </if>
+        <if test="user_mail != null">
+            AND u.user_mail = #{user_mail}
+        </if>
+        <if test="user_phonenumber != null">
+            AND u.user_phonenumber = #{user_phonenumber}
+        </if>
+    </select>
+
+    <!--参数：user_mail, user_pwd-->
+    <select id="selectUserByMailAndPwd" resultMap="getUser">
+        SELECT
+            u.user_id          user_id,
+            u.user_name        user_name,
+            u.user_pwd         user_pwd,
+            u.user_mail        user_mail,
+            u.user_phonenumber user_phonenumber,
+            u.user_pic         user_pic,
+            u.register_date    register_date,
+            ur.role_name       role_name,
+            ul.lv_name         lv_name
+        FROM user u,
+            user_role ur,
+            user_level ul
+        WHERE u.role_id = ur.role_id
+              AND u.lv_id = ul.lv_id
+              AND u.user_name = #{user_mail}
+              AND u.user_pwd = #{user_pwd}
+    </select>
+    <!--注册用户-->
+    <insert id="insertOneUser" parameterType="User">
+        INSERT INTO user (
+                user_id,
+                user_name,
+                user_pwd,
+                user_mail,
+                register_date,
+                role_id,
+                lv_id)
+            VALUE (
+                #{user.user_id},
+                #{user.user_name},
+                #{user.user_pwd},
+                #{user.user_mail},
+                #{user.register_date},
+                #{user.user_role.role_id},
+                #{user.user_level.lv_id})
+    </insert>
+
+    <!--封装成User返回-->
+    <resultMap id="getUser" type="User">
+        <result property="user_id" column="user_id"/>
+        <result property="user_name" column="user_name"/>
+        <result property="user_pwd" column="user_pwd"/>
+        <result property="user_mail" column="user_mail"/>
+        <result property="user_phonenumber" column="user_phonenumber"/>
+        <result property="user_pic" column="user_pic"/>
+        <result property="register_date" column="register_date"/>
+        <association property="user_role" javaType="User_role">
+            <result property="role_name" column="role_name"/>
+        </association>
+        <association property="user_level" javaType="User_level">
+            <result property="lv_name" column="lv_name"/>
+        </association>
+    </resultMap>
+</mapper>

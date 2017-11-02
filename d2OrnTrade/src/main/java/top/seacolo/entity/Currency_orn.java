@@ -1,6 +1,7 @@
 package top.seacolo.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 流通饰品类
@@ -8,7 +9,7 @@ import java.util.Date;
 public class Currency_orn {
     private String currency_orn_id;             //流通饰品编号
     private double currency_orn_price;          //流通饰品价格
-    private Date currency_orn_date;             //流通饰品最近操作日期（取出取回上下架）
+    private Timestamp currency_orn_date;             //流通饰品最近操作日期（取出取回上下架）
     private Currency_state currency_state;      //流通饰品状态 FK
     private User user;                          //用户 FK
     private Orn_information orn_information;    //饰品信息 FK
@@ -29,11 +30,11 @@ public class Currency_orn {
         this.currency_orn_price = currency_orn_price;
     }
 
-    public Date getCurrency_orn_date() {
+    public Timestamp getCurrency_orn_date() {
         return currency_orn_date;
     }
 
-    public void setCurrency_orn_date(Date currency_orn_date) {
+    public void setCurrency_orn_date(Timestamp currency_orn_date) {
         this.currency_orn_date = currency_orn_date;
     }
 

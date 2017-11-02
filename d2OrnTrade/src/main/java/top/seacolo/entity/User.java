@@ -1,6 +1,7 @@
 package top.seacolo.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 用户类
@@ -12,7 +13,7 @@ public class User {
     private String user_mail;           //邮箱
     private String user_phonenumber;    //电话号码
     private String user_pic;            //用户头像
-    private Date register_date;         //注册日期
+    private Timestamp register_date;         //注册日期
     private User_role user_role;        //角色 FK
     private User_level user_level;      //等级 FK
 
@@ -64,11 +65,11 @@ public class User {
         this.user_pic = user_pic;
     }
 
-    public Date getRegister_date() {
+    public Timestamp getRegister_date() {
         return register_date;
     }
 
-    public void setRegister_date(Date register_date) {
+    public void setRegister_date(Timestamp register_date) {
         this.register_date = register_date;
     }
 
@@ -87,4 +88,18 @@ public class User {
     public void setUser_level(User_level user_level) {
         this.user_level = user_level;
     }
+
+    public User() {
+    }
+
+    public User(String user_id, String user_name, String user_pwd, String user_mail, Timestamp register_date, User_role user_role, User_level user_level) {
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.user_pwd = user_pwd;
+        this.user_mail = user_mail;
+        this.register_date = register_date;
+        this.user_role = user_role;
+        this.user_level = user_level;
+    }
+
 }
