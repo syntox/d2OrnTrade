@@ -8,6 +8,7 @@ import top.seacolo.entity.User_level;
 import top.seacolo.entity.User_role;
 import top.seacolo.service.LoginOrRegisterService;
 import top.seacolo.util.ConstantUtil;
+import top.seacolo.util.MailUtil;
 import top.seacolo.util.RandomIdUtil;
 import top.seacolo.util.ReturnSty;
 
@@ -28,7 +29,7 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @return
      */
     @Override
-    public ReturnSty login(String user_mail, String user_pwd) {
+    public ReturnSty loginByMail(String user_mail, String user_pwd) {
         ReturnSty returnSty = new ReturnSty();
         return returnSty;
     }
@@ -42,12 +43,13 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @return
      */
     @Override
-    public ReturnSty register(String user_name, String user_pwd, String user_mail) {
+    public ReturnSty registerByMail(String user_name, String user_pwd, String user_mail) {
         ReturnSty returnSty = new ReturnSty();
 
-        //需要封装的参数
-        // user_id, user_name, user_pwd, user_mail, register_date, role_id, lv_id
+        //需要封装的参数  user_id, user_name, user_pwd, user_mail, register_date, role_id, lv_id
+        //随机id防止重复
         String user_id = RandomIdUtil.getID();
+        //获取当前时间作为注册时间
         Timestamp register_date = new Timestamp(new Date().getTime());
         //默认普通用户
         User_role user_role = new User_role(2);
@@ -57,7 +59,7 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
         User user = new User(user_id, user_name, user_pwd, user_mail, register_date, user_role, user_level);
         int count = userLoginAndRegisterDao.insertOneUser(user);
         if(count > 0){
-            returnSty.setRetCode(ConstantUtil.REGISTER_SUCCESS);
+            returnSty.setRetCode(ConstantUtil.SUCCESS);
             returnSty.setRetMessage("注册成功！");
             return returnSty;
         }else {
@@ -81,6 +83,28 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
     @Override
     public ReturnSty isExistUser(HashMap<String, Object> map) {
         ReturnSty returnSty = new ReturnSty();
+        return returnSty;
+    }
+
+    /**
+     * 接收用户输入的邮箱并发送邮件
+     *
+     * @param user_mail
+     * @return
+     */
+    @Override
+    public ReturnSty receiveMail(String user_mail) {
+        ReturnSty returnSty = new ReturnSty();
+        try {
+            String propNum = MailUtil.sendVerifymail(user_mail);
+            returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetMessage("邮件发送成功");
+            returnSty.setRetValue(propNum);
+        } catch (Exception e) {
+            e.printStackTrace();
+            returnSty.setRetCode(ConstantUtil.MAILSEND_FAIL);
+            returnSty.setRetMessage("邮件发送失败");
+        }
         return returnSty;
     }
 }

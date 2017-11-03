@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.seacolo.dao.UserLoginAndRegisterDao;
 import top.seacolo.service.impl.LoginOrRegisterServiceImpl;
+import top.seacolo.util.ReturnSty;
 
 public class UserServiceTest extends BaseTest{
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -17,8 +18,8 @@ public class UserServiceTest extends BaseTest{
 
     @Test
     public void insertUser() {
-        boolean b = loginOrRegisterServiceImpl.register("aa","123","123");
-        if(b){
+        ReturnSty returnSty = loginOrRegisterServiceImpl.registerByMail("aa","123","123");
+        if(returnSty.getRetCode().equals("666")){
             System.out.println("success");
         }else {
             System.out.println("fail");

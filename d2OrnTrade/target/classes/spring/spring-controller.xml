@@ -30,6 +30,15 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!--配置转换器：将controller结果自动转换为json-->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
     <!-- 4.扫描web(controller)相关的bean -->
     <context:component-scan base-package="top.seacolo.controller" />
 </beans>
