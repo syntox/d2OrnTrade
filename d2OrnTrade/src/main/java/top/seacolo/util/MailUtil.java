@@ -55,9 +55,9 @@ public class MailUtil {
 
         // 3. 创建一封邮件
         //生成邮件前先生成一个随机数作为验证码
-        String propNum = getRandom();
+        String verificationCode = getRandom();
         //创建邮件
-        MimeMessage message = createMimeMessage(session, myEmailAccount, receiveMailAccount, propNum);
+        MimeMessage message = createMimeMessage(session, myEmailAccount, receiveMailAccount, verificationCode);
 
         // 4. 根据 Session 获取邮件传输对象
         Transport transport = session.getTransport();
@@ -85,7 +85,7 @@ public class MailUtil {
         transport.close();
 
         //返回验证码
-        return propNum;
+        return verificationCode;
     }
 
     /**

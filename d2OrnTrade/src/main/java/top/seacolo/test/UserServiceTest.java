@@ -5,8 +5,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.seacolo.dao.UserLoginAndRegisterDao;
+import top.seacolo.entity.User;
 import top.seacolo.service.impl.LoginOrRegisterServiceImpl;
 import top.seacolo.util.ReturnSty;
+
+import java.util.HashMap;
 
 public class UserServiceTest extends BaseTest{
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -24,5 +27,15 @@ public class UserServiceTest extends BaseTest{
         }else {
             System.out.println("fail");
         }
+    }
+
+    @Test
+    public void isExistUser(){
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("user_name","aa");
+        map.put("user_mail",null);
+        map.put("user_phonenumber",null);
+        User user = userLoginAndRegisterDao.SelectOneUser(map);
+        System.out.println(user.toString());
     }
 }

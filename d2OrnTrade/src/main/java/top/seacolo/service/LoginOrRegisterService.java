@@ -3,6 +3,7 @@ package top.seacolo.service;
 import top.seacolo.entity.User;
 import top.seacolo.util.ReturnSty;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
 public interface LoginOrRegisterService {
@@ -14,6 +15,15 @@ public interface LoginOrRegisterService {
      * @return
      */
     ReturnSty loginByMail(String user_mail, String user_pwd);
+
+    /**
+     * 用户名登录
+     *
+     * @param user_name
+     * @param user_pwd
+     * @return
+     */
+    ReturnSty loginByUsername(String user_name, String user_pwd);
 
     /**
      * 邮箱注册
@@ -38,4 +48,12 @@ public interface LoginOrRegisterService {
      * @return
      */
     ReturnSty receiveMail(String user_mail);
+
+    /**
+     * 通过邮箱验证码是否正确
+     * @param user_mail
+     * @param verificationCode
+     * @return
+     */
+    ReturnSty checkVerificationCode(String user_mail,String verificationCode, HttpSession httpSession);
 }

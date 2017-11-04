@@ -12,17 +12,19 @@ import top.seacolo.util.MailUtil;
 import top.seacolo.util.RandomIdUtil;
 import top.seacolo.util.ReturnSty;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
     @Autowired(required = false)
     UserLoginAndRegisterDao userLoginAndRegisterDao;
     /**
-     * 普通登录
+     * 邮箱登录
      *
      * @param user_mail
      * @param user_pwd
@@ -35,7 +37,20 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
     }
 
     /**
-     * 注册
+     * 用户名登录
+     *
+     * @param user_name
+     * @param user_pwd
+     * @return
+     */
+    @Override
+    public ReturnSty loginByUsername(String user_name, String user_pwd) {
+        ReturnSty returnSty = new ReturnSty();
+        return returnSty;
+    }
+
+    /**
+     * 通过邮箱注册
      *
      * @param user_name
      * @param user_pwd
@@ -60,11 +75,11 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
         int count = userLoginAndRegisterDao.insertOneUser(user);
         if(count > 0){
             returnSty.setRetCode(ConstantUtil.SUCCESS);
-            returnSty.setRetMessage("注册成功！");
+            returnSty.setRetMessage("邮箱注册成功！");
             return returnSty;
         }else {
             returnSty.setRetCode(ConstantUtil.REGISTER_FAIL);
-            returnSty.setRetMessage("注册失败！");
+            returnSty.setRetMessage("邮箱注册失败！");
             return returnSty;
         }
 
@@ -81,7 +96,9 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @return
      */
     @Override
-    public ReturnSty isExistUser(HashMap<String, Object> map) {
+    public ReturnSty isExistUser(HashMap<String,Object> map) {
+        User user = userLoginAndRegisterDao.SelectOneUser(map);
+        //验证是否查到用户
         ReturnSty returnSty = new ReturnSty();
         return returnSty;
     }
@@ -104,6 +121,30 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
             e.printStackTrace();
             returnSty.setRetCode(ConstantUtil.MAILSEND_FAIL);
             returnSty.setRetMessage("邮件发送失败");
+        }
+        return returnSty;
+    }
+
+    /**
+     * 通过邮箱验证码是否正确
+     *
+     * @param user_mail
+     * @param verificationCode
+     * @return
+     */
+    @Override
+    public ReturnSty checkVerificationCode(String user_mail, String verificationCode, HttpSession httpSession) {
+        ReturnSty returnSty = new ReturnSty();
+        String verificationCodeSession = (String) httpSession.getAttribute(user_mail);
+        if(verificationCodeSession == null || "".equals(verificationCodeSession)){
+            returnSty.setRetCode(ConstantUtil.MAILVERIFICATIONCODE_NULL);
+            returnSty.setRetMessage("邮箱验证码为空或已过时");
+        }else if(verificationCode.equals(verificationCodeSession)){
+            returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetMessage("邮箱验证码正确");
+        }else {
+            returnSty.setRetCode(ConstantUtil.MAILVERIFICATIONCODE_ERROR);
+            returnSty.setRetMessage("邮箱验证码不正确");
         }
         return returnSty;
     }

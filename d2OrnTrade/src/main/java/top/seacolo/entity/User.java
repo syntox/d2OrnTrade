@@ -102,4 +102,18 @@ public class User {
         this.user_level = user_level;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id='" + user_id + '\'' +
+                ", user_name='" + user_name + '\'' +
+                ", user_pwd='" + user_pwd + '\'' +
+                ", user_mail='" + user_mail + '\'' +
+                ", user_phonenumber='" + user_phonenumber + '\'' +
+                ", user_pic='" + user_pic + '\'' +
+                ", register_date=" + register_date +
+                ", user_role=" + user_role +
+                ", user_level=" + user_level +
+                '}';
+    }
 }
