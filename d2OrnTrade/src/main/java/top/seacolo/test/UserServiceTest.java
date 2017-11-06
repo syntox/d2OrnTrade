@@ -32,10 +32,15 @@ public class UserServiceTest extends BaseTest{
     @Test
     public void isExistUser(){
         HashMap<String,Object> map = new HashMap<>();
-        map.put("user_name","aa");
-        map.put("user_mail",null);
-        map.put("user_phonenumber",null);
+        map.put("user_name","bbc");
+        map.put("user_mail","");
+        map.put("user_phonenumber","");
         User user = userLoginAndRegisterDao.SelectOneUser(map);
-        System.out.println(user.toString());
+        if(user != null){
+            System.out.println(user.toString());
+        }else {
+            System.out.println("aaa");
+        }
+
     }
 }

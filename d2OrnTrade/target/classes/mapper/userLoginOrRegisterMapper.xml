@@ -25,13 +25,13 @@
              user_level ul
         WHERE u.role_id = ur.role_id
               AND u.lv_id = ul.lv_id
-        <if test="user_name != null">
+        <if test="user_name != null and user_name != '' ">
             AND u.user_name = #{user_name}
         </if>
-        <if test="user_mail != null">
+        <if test="user_mail != null and user_mail != '' ">
             AND u.user_mail = #{user_mail}
         </if>
-        <if test="user_phonenumber != null">
+        <if test="user_phonenumber != null and user_phonenumber != '' ">
             AND u.user_phonenumber = #{user_phonenumber}
         </if>
     </select>

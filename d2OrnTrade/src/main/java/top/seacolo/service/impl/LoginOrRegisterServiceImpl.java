@@ -98,8 +98,15 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
     @Override
     public ReturnSty isExistUser(HashMap<String,Object> map) {
         User user = userLoginAndRegisterDao.SelectOneUser(map);
-        //验证是否查到用户
         ReturnSty returnSty = new ReturnSty();
+        //验证是否查到用户
+        if(user != null){
+            returnSty.setRetCode(ConstantUtil.HASEXISTUSER);
+            returnSty.setRetMessage("信息已被使用");
+        }else {
+            returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetMessage("信息可以使用");
+        }
         return returnSty;
     }
 

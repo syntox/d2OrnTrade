@@ -9,4 +9,5 @@ public class ConstantUtil {
     public static String MAILSEND_FAIL = "202";     //邮件发送失败
     public static String MAILVERIFICATIONCODE_NULL = "203";     //邮箱验证码为空或已过时
     public static String MAILVERIFICATIONCODE_ERROR = "204";    //邮箱验证码错误
+    public static String HASEXISTUSER = "205";      //用户已存在（邮箱，用户名，手机号码已被使用）
 }
