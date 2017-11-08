@@ -33,6 +33,14 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
     @Override
     public ReturnSty loginByMail(String user_mail, String user_pwd) {
         ReturnSty returnSty = new ReturnSty();
+        User user = userLoginAndRegisterDao.selectUserByMailAndPwd(user_mail,user_pwd);
+        if(user != null){
+            returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetMessage("登陆成功");
+        }else {
+            returnSty.setRetCode(ConstantUtil.LOGINBYMAILFAIL);
+            returnSty.setRetMessage("邮箱不存在或密码错误");
+        }
         return returnSty;
     }
 
@@ -46,6 +54,14 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
     @Override
     public ReturnSty loginByUsername(String user_name, String user_pwd) {
         ReturnSty returnSty = new ReturnSty();
+        User user = userLoginAndRegisterDao.selectUserByNameAndPwd(user_name,user_pwd);
+        if (user != null){
+            returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetMessage("登陆成功");
+        }else {
+            returnSty.setRetCode(ConstantUtil.LOGINBYNAMEFAIL);
+            returnSty.setRetMessage("用户名不存在或密码错误");
+        }
         return returnSty;
     }
 

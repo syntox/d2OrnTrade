@@ -5,14 +5,23 @@
 <web-app>
     <display-name>dota2Trade</display-name>
 
+    <!--<servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/css/*</url-pattern>
+        <url-pattern>/fonts/*</url-pattern>
+        <url-pattern>/html/*</url-pattern>
+        <url-pattern>/img/*</url-pattern>
+        <url-pattern>/js/*</url-pattern>
+        <url-pattern>/jsp/*</url-pattern>
+    </servlet-mapping>-->
+
     <!-- 配置DispatcherServlet -->
     <servlet>
         <servlet-name>springMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <!-- 配置springMVC需要加载的配置文件
             spring-dao.xml->spring-service.xml->spring-web.xml
-              Mybatis     ->    spring        ->   springmvc
-         -->
+              Mybatis     ->    spring        ->   springmvc         -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring/spring-*.xml</param-value>

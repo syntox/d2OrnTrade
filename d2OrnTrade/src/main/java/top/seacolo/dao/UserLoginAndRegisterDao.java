@@ -8,7 +8,6 @@ import java.util.HashMap;
 public interface UserLoginAndRegisterDao {
     /**
      * 按照用户或邮箱或手机号码查找用户
-     *
      * @param map
      *
      * Map: user_name: ***
@@ -18,7 +17,6 @@ public interface UserLoginAndRegisterDao {
     User SelectOneUser(HashMap<String,Object> map);
     /**
      * 按照邮箱密码查找用户
-     *
      * @param user_mail
      * @param user_pwd
      * @return
@@ -26,8 +24,15 @@ public interface UserLoginAndRegisterDao {
     User selectUserByMailAndPwd(@Param("user_mail") String user_mail,@Param("user_pwd") String user_pwd);
 
     /**
+     * 按照用户名和密码查找用户
+     * @param user_name
+     * @param user_pwd
+     * @return
+     */
+    User selectUserByNameAndPwd(@Param("user_name") String user_name,@Param("user_pwd") String user_pwd);
+
+    /**
      * 增加一条用户
-     *
      * @param user
      * @return
      */

@@ -21,10 +21,10 @@
             ur.role_name       role_name,
             ul.lv_name         lv_name
         FROM user u,
-             user_role ur,
-             user_level ul
+            user_role ur,
+            user_level ul
         WHERE u.role_id = ur.role_id
-              AND u.lv_id = ul.lv_id
+        AND u.lv_id = ul.lv_id
         <if test="user_name != null and user_name != '' ">
             AND u.user_name = #{user_name}
         </if>
@@ -36,6 +36,7 @@
         </if>
     </select>
 
+    <!--按照邮箱和密码查找-->
     <!--参数：user_mail, user_pwd-->
     <select id="selectUserByMailAndPwd" resultMap="getUser">
         SELECT
@@ -56,24 +57,46 @@
               AND u.user_name = #{user_mail}
               AND u.user_pwd = #{user_pwd}
     </select>
+
+    <!--按照用户名和密码查找-->
+    <!--参数：user_name, user_pwd-->
+    <select id="selectUserByNameAndPwd" resultMap="getUser">
+        SELECT
+            u.user_id          user_id,
+            u.user_name        user_name,
+            u.user_pwd         user_pwd,
+            u.user_mail        user_mail,
+            u.user_phonenumber user_phonenumber,
+            u.user_pic         user_pic,
+            u.register_date    register_date,
+            ur.role_name       role_name,
+            ul.lv_name         lv_name
+        FROM user u,
+            user_role ur,
+            user_level ul
+        WHERE u.role_id = ur.role_id
+              AND u.lv_id = ul.lv_id
+              AND u.user_name = #{user_name}
+              AND u.user_pwd = #{user_pwd}
+    </select>
     <!--注册用户-->
     <insert id="insertOneUser" parameterType="User">
         INSERT INTO user (
-                user_id,
-                user_name,
-                user_pwd,
-                user_mail,
-                register_date,
-                role_id,
-                lv_id)
+            user_id,
+            user_name,
+            user_pwd,
+            user_mail,
+            register_date,
+            role_id,
+            lv_id)
             VALUE (
-                #{user.user_id},
-                #{user.user_name},
-                #{user.user_pwd},
-                #{user.user_mail},
-                #{user.register_date},
-                #{user.user_role.role_id},
-                #{user.user_level.lv_id})
+            #{user.user_id},
+            #{user.user_name},
+            #{user.user_pwd},
+            #{user.user_mail},
+            #{user.register_date},
+            #{user.user_role.role_id},
+            #{user.user_level.lv_id})
     </insert>
 
     <!--封装成User返回-->
