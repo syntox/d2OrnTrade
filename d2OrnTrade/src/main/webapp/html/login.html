@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网站登录</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css"/>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
+</head>
+<body>
+<!--js加载网站头部-->
+<div class="login-header" id="login-header"></div>
+<div class="login-body row-fluid" id="login-body">
+    <!--登录表单-->
+    <div class="span5 offset6 login-body-form">
+        <!--选择登录方式-->
+        <ul class="nav nav-tabs span6 offset3">
+            <li class="active" id="login-by-mail"><a class="login-by-mail">邮箱登陆</a></li>
+            <li id="login-by-username"><a class="login-by-username">用户名登录</a></li>
+        </ul>
+        <!--邮箱-->
+        <div class="login-input-email" id="login-input-email">
+            <label class="span4 offset1 label-input-email" for="input-email">邮箱</label>
+            <div class="span4 offset2 login-body-email-warning">邮箱不能为空</div>
+            <div class="input-prepend span8 offset1 login-email">
+                <span class="add-on"><i class="icon-envelope"></i></span>
+                <input class="span12 input-email" id="input-email" type="text" placeholder="邮箱">
+            </div>
+        </div>
+        <!--用户名-->
+        <div class="login-input-username" id="login-input-username">
+            <label class="span4 offset1 label-input-username" for="input-username">用户名</label>
+            <div class="span4 offset2 login-body-username-warning">用户名不能为空</div>
+            <div class="input-prepend span8 offset1 login-username">
+                <span class="add-on"><i class="icon-user"></i></span>
+                <input class="span12 input-username" id="input-username" type="text" placeholder="用户名">
+            </div>
+        </div>
+        <!--密码-->
+        <label class="span4 offset1 label-input-pwd" for="input-pwd">密码</label>
+        <div class="span4 offset2 login-body-pwd-warning">密码不能为空</div>
+        <div class="input-prepend span8 offset1 login-pwd">
+            <span class="add-on"><i class="icon-lock"></i></span>
+            <input class="span12 input-pwd" id="input-pwd" type="password" placeholder="密码">
+        </div>
+        <!--确认登录-->
+        <a class="btn btn-warning span3 offset4" id="login-btn">登&nbsp;&nbsp;&nbsp;录</a>
+    </div>
+</div>
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="../js/login.js"></script>
+</body>
+</html>

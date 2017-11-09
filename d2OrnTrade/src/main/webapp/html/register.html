@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网站注册</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/register.css"/>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
+</head>
+<body>
+<!--js加载网站头部-->
+<div class="register-header" id="register-header"></div>
+<div class="register-body row-fluid" id="register-body">
+    <!--注册表单-->
+    <div class="span5 offset6 register-body-form">
+        <!--用户名-->
+        <label class="span4 offset1 label-input-username" for="input-username">用户名</label>
+        <div class="span4 offset2 register-body-username-warning">用户名不能为空</div>
+        <div class="input-prepend span8 offset1 register-username">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input class="span12 input-username" id="input-username" type="text" placeholder="用户名">
+        </div>
+        <!--密码-->
+        <label class="span4 offset1 label-input-pwd" for="input-pwd">密码</label>
+        <div class="span4 offset2 register-body-pwd-warning">密码不能为空</div>
+        <div class="input-prepend span8 offset1 register-pwd">
+            <span class="add-on"><i class="icon-lock"></i></span>
+            <input class="span12 input-pwd" id="input-pwd" type="password" placeholder="密码">
+        </div>
+        <!--确认密码-->
+        <label class="span4 offset1 label-input-pwd" for="input-pwd-check">确认密码</label>
+        <div class="span4 offset2 register-body-checkpwd-warning">密码不能为空</div>
+        <div class="input-prepend span8 offset1 register-pwd">
+            <span class="add-on"><i class="icon-lock"></i></span>
+            <input class="span12 input-pwd-check" id="input-pwd-check" type="password" placeholder="确认密码">
+        </div>
+        <!--邮箱-->
+        <label class="span4 offset1 label-input-email" for="input-email">邮箱</label>
+        <div class="span4 offset2 register-body-email-warning">邮箱不能为空</div>
+        <div class="input-prepend span8 offset1 register-email">
+            <span class="add-on"><i class="icon-envelope"></i></span>
+            <input class="span12 input-email" id="input-email" type="text" placeholder="邮箱">
+        </div>
+        <!--发送验证码-->
+        <div class="span4 offset6 register-body-mailcheck-warning">邮箱验证码不能为空</div>
+        <div class="input-append span8 offset1 getMailCheck">
+            <input class="span9" id="appendedInput" type="text" placeholder="验证码">
+            <span class="add-on"><a class="btn-link">获取邮箱验证码</a></span>
+        </div>
+        <!--注册-->
+        <a class="btn btn-warning span3 offset4 registr-btn" id="register-btn">注&nbsp;&nbsp;&nbsp;册</a>
+    </div>
+</div>
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="../js/register.js"></script>
+</body>
+</html>

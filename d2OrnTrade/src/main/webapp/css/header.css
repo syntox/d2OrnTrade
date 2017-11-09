@@ -24,18 +24,20 @@
     top: 10px;
     display: block;
     float: right;
-    height: 60px;
+    height: 43px;
     width: 50%;
     font-size: large;
     padding-right: 5%;
+    padding-top: 17px;
 }
 .web-header .header-navbar-bg .header-bottom {
     position: relative;
     left: 5%;
     top: 10px;
     display: block;
-    height: 60px;
+    height: 35px;
     font-size: large;
+    padding-top: 15px;
 }
 
 .web-header .header-navbar-bg .header-top li,
@@ -43,14 +45,12 @@
     list-style: none;
     display: block;
     width: 15%;
-    margin-right: 2%;
-    margin-top: 18px;
+    margin-right: 1%;
 }
 .web-header .header-navbar-bg .header-top li > a,
 .web-header .header-navbar-bg .header-bottom li > a{
     color: #f7f7fb;
-    font-size: larger;
-    font-family: "Lucida Grande";
+    font-size: medium;
     display: block;
     width: 100%;
 }
