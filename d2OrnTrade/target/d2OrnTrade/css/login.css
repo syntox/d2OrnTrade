@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.clearBoth {
+    content: "";
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+.fleft {
+    float: left;
+}
+
+.fright {
+    float: right;
+}
+.login-header {
+    /*background: url("../img/header_bg.png") 100% 100%;*/
+    height: 130px;
+}
+.login-body {
+    background: url("../img/login-bg.png") 80% 100%;
+    background-position: -380px;
+    padding: 50px 20px 50px 20px;
+    height: 500px;
+}
+
+.login-body-form {
+    background-color: rgba(137, 137, 137, 0.18);
+    padding-top: 25px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
+
+/*切换标签样式重写*/
+.login-body-form .nav-tabs {
+    border-bottom: 0px solid #ddd;
+    margin-bottom: 40px;
+}
+.login-body-form .nav-tabs > li > a {
+    border-bottom: 2px solid #eeb43e;
+    color: #999999;
+    padding-top: 30px;
+    cursor: pointer;
+}
+.login-body-form .nav-tabs > li > a:hover,
+.login-body-form .nav-tabs > li > a:focus {
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.1);
+}
+
+.login-body-form .nav-tabs > .active > a,
+.login-body-form .nav-tabs > .active > a:hover,
+.login-body-form .nav-tabs > .active > a:focus {
+    color: #f1951c;
+    cursor: default;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid #eeb43e;
+    border-bottom-color:  transparent;
+}
+
+.login-body-form .label-input-email,
+.login-body-form .label-input-pwd,
+.login-body-form .label-input-username {
+    color: orange;
+    font-size: 20px;
+    padding-left: 8px;
+}
+.login-body-form .input-append .add-on,
+.login-body-form .input-prepend .add-on {
+    display: inline-block;
+    width: auto;
+    height: 40px;
+    min-width: 16px;
+    padding: 4px 5px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 40px;
+    text-align: center;
+    text-shadow: 0 1px 0 #ffffff;
+    background-color: #eeb43e;
+    border: 1px solid #eeb43e;
+}
+.login-body-form .input-append input,
+.login-body-form .input-prepend input {
+    display: inline-block;
+    height: 50px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #555555;
+    vertical-align: middle;
+    background-color: rgba(8, 0, 18, 0.25);
+    color: #f1951c;
+    border: 1px solid #eeb43e;
+}
+.login-body-form a {
+    height: 50px;
+    line-height: 40px;
+    font-size: larger;
+    margin-top: 8%;
+    opacity: 0.8;
+}
+
+.login-body-pwd-warning,
+.login-body-email-warning,
+.login-body-username-warning {
+    color: red;
+}
+
+/*只显示邮箱登陆*/
+.login-input-username {
+    display: none;
+}
