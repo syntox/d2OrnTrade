@@ -31,7 +31,7 @@ public class UserServiceTest extends BaseTest{
 
     @Test
     public void isExistUser(){
-        HashMap<String,Object> map = new HashMap<>();
+        HashMap<String,Object> map = new HashMap();
         map.put("user_name","bbc");
         map.put("user_mail","");
         map.put("user_phonenumber","");
