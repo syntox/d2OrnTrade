@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户查询与展示</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/back_manager_user_list.css"/>
+    <link rel="stylesheet" href="../bootstrap_v3/css/bootstrap.css"/>
+</head>
+<body>
+<div class="container bm_user_list_main">
+    <nav class="bm_user_list_filter">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="搜索条件">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">查找</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-3-->
+        </div><!-- /.row -->
+    </nav>
+    <section class="bm_user_list_users">
+        <table class="table table-hover table-striped" id="bm_user_list_table_users">
+            <tr class="success">
+                <th>编号</th>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>邮箱</th>
+                <th>手机号码</th>
+                <th>头像</th>
+                <th>注册日期</th>
+                <th>角色</th>
+                <th>等级</th>
+            </tr>
+            <!--显示7个用户-->
+            <!--tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr-->
+        </table>
+    </section>
+    <footer class="bm_user_list_page">
+        <section class="bm_user_list_page_ctrl">
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-info">首页</button>
+                <button type="button" class="btn btn-warning">上一页</button>
+                <button type="button" class="btn btn-success">第1页</button>
+                <button type="button" class="btn btn-warning">下一页</button>
+                <button type="button" class="btn btn-info">尾页</button>
+            </div>
+        </section>
+    </footer>
+
+</div>
+
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../bootstrap_v3/js/bootstrap.js"></script>
+<script src="../js/back_manager_user_list.js"></script>
+</body>
+</html>

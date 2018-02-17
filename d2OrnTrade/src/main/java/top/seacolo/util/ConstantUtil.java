@@ -12,4 +12,5 @@ public class ConstantUtil {
     public static String HASEXISTUSER = "205";      //用户已存在（邮箱，用户名，手机号码已被使用）
     public static String LOGINBYMAILFAIL = "206";      //用户登录失败(邮箱不存在或密码错误)
     public static String LOGINBYNAMEFAIL = "207";      //用户登录失败(用户名不存在或密码错误)
+    public static String UNIQUEERROR = "555";       // 特殊异常
 }

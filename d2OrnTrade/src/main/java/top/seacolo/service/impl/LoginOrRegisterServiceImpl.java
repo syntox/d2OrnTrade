@@ -30,7 +30,6 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @param user_pwd
      * @return
      */
-    @Override
     public ReturnSty loginByMail(String user_mail, String user_pwd) {
         ReturnSty returnSty = new ReturnSty();
         User user = userLoginAndRegisterDao.selectUserByMailAndPwd(user_mail,user_pwd);
@@ -51,7 +50,6 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @param user_pwd
      * @return
      */
-    @Override
     public ReturnSty loginByUsername(String user_name, String user_pwd) {
         ReturnSty returnSty = new ReturnSty();
         User user = userLoginAndRegisterDao.selectUserByNameAndPwd(user_name,user_pwd);
@@ -73,7 +71,6 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @param user_mail
      * @return
      */
-    @Override
     public ReturnSty registerByMail(String user_name, String user_pwd, String user_mail) {
         ReturnSty returnSty = new ReturnSty();
 
@@ -111,7 +108,6 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @param map
      * @return
      */
-    @Override
     public ReturnSty isExistUser(HashMap<String,Object> map) {
         User user = userLoginAndRegisterDao.SelectOneUser(map);
         ReturnSty returnSty = new ReturnSty();
@@ -132,7 +128,6 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @param user_mail
      * @return
      */
-    @Override
     public ReturnSty receiveMail(String user_mail) {
         ReturnSty returnSty = new ReturnSty();
         try {
@@ -155,7 +150,6 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
      * @param verificationCode
      * @return
      */
-    @Override
     public ReturnSty checkVerificationCode(String user_mail, String verificationCode, HttpSession httpSession) {
         ReturnSty returnSty = new ReturnSty();
         String verificationCodeSession = (String) httpSession.getAttribute(user_mail);

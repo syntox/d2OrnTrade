@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>D2饰品后台管理系统</title>
+    <meta name="keywords" content="管理,后台" />
+    <meta name="description" content="D2饰品后台管理系统" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/bootstrap.addtabs/bootstrap.addtabs.css" rel="stylesheet">
+    <link href="../css/back_manager.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="admin-header">
+    <div class="container-fluid">
+        <div class="pull-left">
+            <h3>D2饰品交易系统后台管理主页</h3>
+        </div>
+        <div class="pull-right">
+            <div class="admin-header-bar">
+                <!--<a href="javascript:setHomepage()"><i class="glyphicon glyphicon-home"></i> 设为首页</a>-->
+                <!--<i class="vertical-separator"></i>-->
+                <!--<a href="javascript:addFavorite(this)"><i class="glyphicon glyphicon-heart-empty"></i> 收藏</a>-->
+                <!--<i class="vertical-separator"></i>-->
+                <a href="login.html" onclick="return confirm('您确定要退出系统吗？');"><i class="glyphicon glyphicon-log-out"></i> 退出</a>
+                <i class="vertical-separator"></i>
+                <a href="help.html" target="_blank"><i class="glyphicon glyphicon-question-sign"></i> 帮助</a>
+            </div>
+            <div class="user">
+                当前用户：<span class="label label-default">章海尉</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- 侧边菜单 -->
+<i class="glyphicon glyphicon-play admin-side-toggle"></i>
+<div class="admin-side menu_side_toggle">
+    <ul class="nav nav-pills nav-stacked remove-radius ">
+        <li class="active">
+            <a href="#" class="main_fucntion_menu">
+                <i class="glyphicon glyphicon-th-large "> </i> 功能菜单
+                <i class="pull-right glyphicon glyphicon-align-justify" id="sideToggle"></i>
+            </a>
+        </li>
+        <!-- 分组菜单 -->
+        <!--用户相关-->
+        <li>
+            <a href="#" class="list-group-item-info d2-user-manager" data-toggle="collapse" data-target="#d2-user-manager">
+                <i class="glyphicon glyphicon-user"></i> 用户管理 <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul class="list-group collapse" id="d2-user-manager">
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="all_users" url="back_manager_user_list.html"><i class="glyphicon glyphicon-user"></i> 用户列表</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="add_user" url="back_manager_user_add.html"><i class="glyphicon glyphicon-plus"></i> 添加用户</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="modify_user" url="back_manager_user_modify.html"><i class="glyphicon glyphicon-edit"></i> 修改用户</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="delete_user" url="back_manager_user_delete.html"><i class="glyphicon glyphicon-trash"></i> 删除用户</a></li>
+            </ul>
+        </li>
+        <!--饰品相关-->
+        <li>
+            <a href="#" class="list-group-item-info" data-toggle="collapse" data-target="#d2-orn-manager">
+                <i class="glyphicon glyphicon-gift"></i> 饰品管理 <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul class="list-group collapse" id="d2-orn-manager">
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="all_orns" url="back_manager_orn_list"><i class="glyphicon glyphicon-gift"></i> 饰品列表</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="add_orn" url="back_manager_orn_add"><i class="glyphicon glyphicon-plus"></i> 饰品添加</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="modify_orn" url="back_manager_orn_modify"><i class="glyphicon glyphicon-edit"></i> 饰品修改</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="delete_orn" url="back_manager_orn_delete"><i class="glyphicon glyphicon-trash"></i> 饰品删除</a></li>
+            </ul>
+        </li>
+        <!--英雄相关-->
+        <li>
+            <a href="#" class="list-group-item-info" data-toggle="collapse" data-target="#d2-hero-manager">
+                <i class="glyphicon glyphicon-knight"></i> 英雄管理 <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul class="list-group collapse" id="d2-hero-manager">
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="all_heros" url="back_manager_hero_list"><i class="glyphicon glyphicon-knight"></i> 英雄列表</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="add_hero" url="back_manager_hero_add"><i class="glyphicon glyphicon-plus"></i> 添加英雄</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="modify_hero" url="back_manager_hero_modify"><i class="glyphicon glyphicon-edit"></i> 修改英雄</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="delete_hero" url="back_manager_hero_delete"><i class="glyphicon glyphicon-trash"></i> 删除英雄</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="hero_attr" url="back_manager_hero_attr"><i class="glyphicon glyphicon-tags"></i> 英雄属性管理</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="hero_part" url="back_manager_hero_part"><i class="glyphicon glyphicon glyphicon-magnet"></i> 英雄部位管理</a></li>
+            </ul>
+        </li>
+        <!--交易历史相关-->
+        <li>
+            <a href="#" class="list-group-item-info" data-toggle="collapse" data-target="#d2-trade-history">
+                <i class="glyphicon glyphicon-shopping-cart"></i> 饰品交易历史管理 <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul class="list-group collapse" id="d2-trade-history">
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="all_history" url="back_manager_history_list"><i class="glyphicon glyphicon-shopping-cart"></i>  交易历史列表</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="all_tobuy_history" url="back_manager__tobuy_history_list"><i class="glyphicon glyphicon-bullhorn"></i>  求购历史列表</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="delete_history" url="back_manager_history_delete"><i class="glyphicon glyphicon-trash"></i>  交易历史删除</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="delete_tobuy_history" url="back_manager_tobuy_history_delete"><i class="glyphicon glyphicon-trash"></i>  求购历史删除</a></li>
+            </ul>
+        </li>
+        <!--其余-->
+        <li>
+            <a href="#" class="list-group-item-info" data-toggle="collapse" data-target="#setting">
+                <i class="glyphicon glyphicon-wrench"></i> 其他 <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul class="list-group collapse" id="setting">
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="dict" url="/dict"><i class="glyphicon glyphicon-book"></i> 数据字典</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="countries" url="/countries"><i class="glyphicon glyphicon-globe"></i> 简介</a></li>
+                <li class="list-group-item"><a href="javascript:void(0);" data-addtab="areas" url="/areas"><i class="glyphicon glyphicon-retweet"></i> 邮箱控制 </a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="admin-body" id="tabs">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">首页</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+        </div>
+    </div>
+</div>
+<!--<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+<!--<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../bootstrap_v3/js/bootstrap.js"></script>
+<script src="../bootstrap/bootstrap.addtabs/bootstrap.addtabs.js"></script>
+<script src="../js/back_manager.js"></script>
+</body>
+
+</html>
