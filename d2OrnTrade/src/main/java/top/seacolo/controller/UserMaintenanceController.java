@@ -8,6 +8,9 @@ import top.seacolo.entity.User;
 import top.seacolo.service.impl.UserMaintenanceServiceImpl;
 import top.seacolo.util.ReturnSty;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *   1. 用户信息查询
  *   2. 用户信息维护：增删改
@@ -18,11 +21,33 @@ public class UserMaintenanceController {
     @Autowired(required = false)
     UserMaintenanceServiceImpl userMaintenanceService;
 
+    /**
+     * 查找所有用户
+     * @return
+     */
     @RequestMapping(value = "/selectAllUser",produces = "application/json;charset=UTF-8")
     @ResponseBody
     public ReturnSty SelectAllUser(){
         ReturnSty returnSty = userMaintenanceService.SelectAllUsers();
         return returnSty;
     }
+
+    /**
+     * 分页查找所有用户
+     * @param pageNow
+     * @param pageSize
+     * @return
+     */
+    @RequestMapping(value = "/SelectUserWithPage",produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public ReturnSty SelectUserWithPage(int pageNow, int pageSize){
+        HashMap<String, Object> pageMap = new HashMap<String, Object>();
+        pageMap.put("pageNow",pageNow);
+        pageMap.put("pageSize",pageSize);
+        ReturnSty returnSty = userMaintenanceService.SelectUserWithPage(pageMap);
+        return returnSty;
+    }
+
+
 
 }

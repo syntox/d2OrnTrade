@@ -33,3 +33,16 @@
     width: 40%;
     margin: 0 auto;
 }
+
+#bm_user_list_table_users tr th{
+    text-align: center;
+}
+
+#bm_user_list_table_users tr td{
+    text-align: center;
+}
+
+#bm_user_list_table_users .bm_user_list_table_users_user_pic img{
+    width: 100px;
+    height: auto;
+}

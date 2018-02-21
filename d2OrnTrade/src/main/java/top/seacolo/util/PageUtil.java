@@ -2,26 +2,25 @@ package top.seacolo.util;
 
 import java.util.List;
 
-public class PageUtil<T> {
+public class PageUtil {
 
-    private int pageNow = 1;    // 当前页数
-    private int pageSize = 4;   // 每页显示记录的条数
-    private int totalCount;     // 总的记录条数
-    private int totalPageCount; // 总的页数
-    private int startPos;       // 开始位置，从0开始
-    private boolean hasFirst;   // 是否有首页
-    private boolean hasPre;     // 是否有前一页
-    private boolean hasNext;    // 是否有下一页
-    private boolean hasLast;    // 是否有最后一页
-
-    private List<T> lists;
+    private int pageNow = 1;         // 当前页数
+    private int pageSize = 4;          // 每页显示记录的条数
+    private int totalCount;              // 总的记录条数
+    private int totalPageCount;     // 总的页数
+    private int startPos;                  // 开始位置，从0开始
+    private boolean hasFirst;         // 是否有首页
+    private boolean hasPre;           // 是否有前一页
+    private boolean hasNext;        // 是否有下一页
+    private boolean hasLast;         // 是否有最后一页
 
     public PageUtil() {
     }
 
-    public PageUtil(int totalCount, int pageNow) {
-        this.totalCount = totalCount;
+    public PageUtil(int pageNow, int pageSize, int totalCount) {
         this.pageNow = pageNow;
+        this.pageSize = pageSize;
+        this.totalCount = totalCount;
     }
 
     /**
@@ -148,11 +147,22 @@ public class PageUtil<T> {
         this.hasLast = hasLast;
     }
 
-    public List<T> getLists() {
-        return lists;
-    }
-
-    public void setLists(List<T> lists) {
-        this.lists = lists;
+    /**
+     * 分页信息计算设定
+     *
+     * @param pageNow
+     * @param pageSize
+     * @param totalCount
+     */
+    public void pageInfoSet(int pageNow, int pageSize, int totalCount){
+        setPageNow(pageNow);                                    //设置当前页
+        setPageSize(pageSize);                                      //设置每页条数
+        setTotalCount(totalCount);                                //设置总数
+        setTotalPageCount(getTotalPageCount());       //设置总页数
+        setStartPos(getStartPos());                                 //设置查询偏移位置，起始位置
+        setHasFirst(isHasFirst());                                     //设置是否有第一页
+        setHasLast(isHasLast());                                     //设置是否有最后一页
+        setHasPre(isHasPre());                                       //设置是否有上一页
+        setHasNext(isHasNext());                                  //设置是否有下一页
     }
 }

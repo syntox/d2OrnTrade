@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="top.seacolo.dao.UserMaintenanceDao">
+    <!--查询用户总个数-->
+    <select id="SelectCountAllUsers" resultType="int">
+        SELECT count(*) from user
+    </select>
+
     <!--查询所有用户并返回所有信息-->
     <select id="SelectAllUsers" resultMap="getUser">
         SELECT
@@ -21,6 +26,32 @@
             user_level ul
         WHERE u.role_id = ur.role_id
         AND u.lv_id = ul.lv_id
+    </select>
+
+    <!--分页查询部分用户并返回所有信息-->
+    <!--
+            Map: {startPos: ***
+                      pageSize: ***}
+    -->
+    <select id="SelectUserWithPage" parameterType="Map" resultMap="getUser">
+        SELECT
+        u.user_id          user_id,
+        u.user_name        user_name,
+        u.user_pwd         user_pwd,
+        u.user_mail        user_mail,
+        u.user_phonenumber user_phonenumber,
+        u.user_pic         user_pic,
+        u.register_date    register_date,
+        ur.role_name       role_name,
+        ul.lv_name         lv_name
+        FROM user u,
+        user_role ur,
+        user_level ul
+        WHERE u.role_id = ur.role_id
+        AND u.lv_id = ul.lv_id
+        <if test="startPos != null and pageSize != null">
+            LIMIT #{startPos},#{pageSize}
+        </if>
     </select>
 
     <!--封装成User返回-->
