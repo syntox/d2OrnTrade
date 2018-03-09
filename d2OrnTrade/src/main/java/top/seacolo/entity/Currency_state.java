@@ -31,4 +31,7 @@ public class Currency_state {
     public void setCurrency_state_desc(String currency_state_desc) {
         this.currency_state_desc = currency_state_desc;
     }
+
+    public Currency_state() {
+    }
 }

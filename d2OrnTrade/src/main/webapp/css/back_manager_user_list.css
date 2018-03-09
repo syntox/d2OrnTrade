@@ -43,6 +43,6 @@
 }
 
 #bm_user_list_table_users .bm_user_list_table_users_user_pic img{
-    width: 100px;
-    height: auto;
+    height: 30px;
+    width: auto;
 }

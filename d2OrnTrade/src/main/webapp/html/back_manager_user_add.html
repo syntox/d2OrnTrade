@@ -2,9 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>用户添加</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/back_manager_user_add.css"/>
+    <link rel="stylesheet" href="../bootstrap_v3/css/bootstrap.css"/>
 </head>
 <body>
+<div class="container bm_user_add_main">
+    <form class="bm_user_add_form" id="bm_user_add_form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="bm_user_add_form_userName" class="bm_user_add_form_userName_label"><span class="glyphicon glyphicon-user"></span></label>
+            <section class="bm_user_add_form_userName_warning" id="bm_user_add_form_userName_warning"></section>
+            <div class="clearBoth"></div>
+            <input type="text" class="form-control bm_user_add_form_userName" id="bm_user_add_form_userName" placeholder="用户名">
+        </div>
+        <div class="form-group">
+            <label for="bm_user_add_form_password" class="bm_user_add_form_password_label"><span class="glyphicon glyphicon-lock"></span></label>
+            <section class="bm_user_add_form_password_warning" id="bm_user_add_form_password_warning"></section>
+            <div class="clearBoth"></div>
+            <input type="password" class="form-control bm_user_add_form_password" id="bm_user_add_form_password" placeholder="密码">
+        </div>
+        <div class="form-group">
+            <label for="bm_user_add_form_password_checking" class="bm_user_add_form_password_checking_label"><span class="glyphicon glyphicon-lock"></span></label>
+            <section class="bm_user_add_form_password_checking_warning" id="bm_user_add_form_password_checking_warning"></section>
+            <div class="clearBoth"></div>
+            <input type="password" class="form-control bm_user_add_form_password_checking" id="bm_user_add_form_password_checking" placeholder="确认密码">
+        </div>
+        <div class="form-group">
+            <label for="bm_user_add_form_mail" class="bm_user_add_form_mail_label"><span class="glyphicon glyphicon-envelope"></span></label>
+            <section class="bm_user_add_form_mail_warning" id="bm_user_add_form_mail_warning"></section>
+            <div class="clearBoth"></div>
+            <input type="email" class="form-control bm_user_add_form_mail" id="bm_user_add_form_mail" placeholder="用户邮箱">
+        </div>
+        <div class="form-group">
+            <label for="bm_user_add_form_number" class="bm_user_add_form_number_label"><span class="glyphicon glyphicon-phone-alt"></span></label>
+            <section class="bm_user_add_form_number_warning" id="bm_user_add_form_number_warning"></section>
+            <div class="clearBoth"></div>
+            <input type="text" class="form-control bm_user_add_form_number" id="bm_user_add_form_number" placeholder="用户号码">
+        </div>
+        <div class="form-group">
+            <label for="bm_user_add_form_pic">上传头像</label>
+            <input type="file" name="user_img" id="bm_user_add_form_pic">
+        </div>
+        <!--图片预览-->
+        <div class="imgDiv" id="imgDiv">
+            <img class="img_preView" id="img_preView" src="" alt="">
+        </div>
 
+        <button type="button" class="btn btn-default" id="bm_user_add_form_submit">确认</button>
+    </form>
+
+</div>
+
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/jquery.form.js"></script>
+<script src="../bootstrap_v3/js/bootstrap.js"></script>
+<script src="../js/util_long_to_date.js"></script>
+<script src="../js/util_img_preView.js"></script>
+<script src="../js/back_manager_user_add.js"></script>
 </body>
 </html>

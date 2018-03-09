@@ -67,4 +67,7 @@ public class Orn_information {
     public void setHero_part(Hero_part hero_part) {
         this.hero_part = hero_part;
     }
+
+    public Orn_information() {
+    }
 }

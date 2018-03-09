@@ -52,4 +52,7 @@ public class Recharge_record {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public Recharge_record() {
+    }
 }

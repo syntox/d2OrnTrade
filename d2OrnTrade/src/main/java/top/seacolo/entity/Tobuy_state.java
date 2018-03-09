@@ -31,4 +31,7 @@ public class Tobuy_state {
     public void setTobuy_state_desc(String tobuy_state_desc) {
         this.tobuy_state_desc = tobuy_state_desc;
     }
+
+    public Tobuy_state() {
+    }
 }

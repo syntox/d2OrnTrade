@@ -31,4 +31,7 @@ public class Hero_part {
     public void setPart_desc(String part_desc) {
         this.part_desc = part_desc;
     }
+
+    public Hero_part() {
+    }
 }

@@ -61,4 +61,7 @@ public class Currency_orn {
     public void setOrn_information(Orn_information orn_information) {
         this.orn_information = orn_information;
     }
+
+    public Currency_orn() {
+    }
 }

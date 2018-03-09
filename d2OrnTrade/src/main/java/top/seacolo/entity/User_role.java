@@ -43,4 +43,8 @@ public class User_role {
     public User_role(int role_id) {
         this.role_id = role_id;
     }
+
+    public User_role(String role_name) {
+        this.role_name = role_name;
+    }
 }

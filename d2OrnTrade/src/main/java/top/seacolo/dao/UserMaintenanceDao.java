@@ -1,5 +1,6 @@
 package top.seacolo.dao;
 
+import org.apache.ibatis.annotations.Param;
 import top.seacolo.entity.User;
 
 import java.util.HashMap;
@@ -29,4 +30,29 @@ public interface UserMaintenanceDao {
      * @return
      */
     List<User> SelectUserWithPage(HashMap<String,Object>  map);
+
+    /**
+     * 添加一条用户
+     * @param user
+     * @return
+     */
+    int insertOneUser(@Param("user") User user);
+
+    /**
+     * 查找某个用户
+     *      user_id:*
+     *      user_name: *
+     *      user_mail: *
+     *      user_phonenumber: *
+     * @param map
+     * @return
+     */
+    User SelectUniqueUser(HashMap<String,Object> map);
+
+    /**
+     * 管理员修改某个用户
+     * @param user
+     * @return
+     */
+    int modifyOneUser(@Param("user")User user);
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.seacolo.dao.UserRoleDao">
+
+    <!--查询所有角色信息并返回-->
+    <select id="SelectAllUserRole" resultMap="getUserRole">
+        SELECT
+            ur.role_id   role_id,
+            ur.role_name role_name,
+            ur.role_desc role_desc
+        FROM user_role ur
+    </select>
+
+    <!--封装成User_role返回
+           private int role_id;                //角色编号
+           private String role_name;    //角色名称
+           private String role_desc;      //角色描述
+     -->
+    <resultMap id="getUserRole" type="User_role">
+        <result property="role_id" column="role_id"/>
+        <result property="role_name" column="role_name"/>
+        <result property="role_desc" column="role_desc"/>
+    </resultMap>
+</mapper>

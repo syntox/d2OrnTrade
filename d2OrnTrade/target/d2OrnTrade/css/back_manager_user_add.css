@@ -1,0 +1,53 @@
+.clearBoth{
+    content: "";
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+.bm_user_add_main {
+    height: 800px;
+    background-color: rgba(62, 173, 245, 0.11);
+    box-shadow: 0 0 10px 10px rgba(14, 144, 210, 0.11) inset;
+}
+
+.bm_user_add_form {
+    width: 70%;
+    height: 90%;
+    margin-top: 35px;
+    margin-left: 15%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-left: 15%;
+    padding-top: 5%;
+    padding-bottom: 15px;
+}
+
+.bm_user_add_form input {
+    width: 50%;
+}
+
+.img_preView {
+    width: auto;
+    height: 130px;
+    margin-bottom: 15px;
+}
+
+.bm_user_add_form_userName_label,
+.bm_user_add_form_password_label,
+.bm_user_add_form_password_checking_label,
+.bm_user_add_form_mail_label,
+.bm_user_add_form_number_label{
+    float: left;
+    width: 20%;
+}
+
+.bm_user_add_form_userName_warning,
+.bm_user_add_form_password_warning,
+.bm_user_add_form_password_checking_warning,
+.bm_user_add_form_mail_warning,
+.bm_user_add_form_number_warning{
+    float: left;
+    width: 28%;
+    text-align: right;
+    color: red;
+}

@@ -31,4 +31,11 @@ public class Hero_attribute {
     public void setAttr_desc(String attr_desc) {
         this.attr_desc = attr_desc;
     }
+
+    public Hero_attribute(int attr_id) {
+        this.attr_id = attr_id;
+    }
+
+    public Hero_attribute() {
+    }
 }

@@ -61,4 +61,7 @@ public class Tobuy_orn {
     public void setTobuy_state(Tobuy_state tobuy_state) {
         this.tobuy_state = tobuy_state;
     }
+
+    public Tobuy_orn() {
+    }
 }

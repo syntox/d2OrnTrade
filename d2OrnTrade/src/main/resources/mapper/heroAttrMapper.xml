@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.seacolo.dao.HeroAttrDao">
+
+    <!--查询所有英雄属性信息并返回-->
+    <select id="SelectAllHeroAttr" resultMap="getHeroAttr">
+        SELECT
+            ha.attr_id   attr_id,
+            ha.attr_name attr_name,
+            ha.attr_desc attr_desc
+        FROM hero_attribute ha
+    </select>
+
+    <!--封装成Hero_attribute返回
+             private int attr_id;               属性编号
+            private String attr_name;    属性名称
+           private String attr_desc;      属性描述
+     -->
+    <resultMap id="getHeroAttr" type="Hero_attribute">
+        <result property="attr_id" column="attr_id"/>
+        <result property="attr_name" column="attr_name"/>
+        <result property="attr_desc" column="attr_desc"/>
+    </resultMap>
+</mapper>

@@ -2,9 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>用户信息修改</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/back_manager_user_modify.css"/>
+    <link rel="stylesheet" href="../bootstrap_v3/css/bootstrap.css"/>
 </head>
 <body>
+<div class="container bm_user_modify_main">
+    <nav class="bm_user_modify_filter">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="bm_user_modify_filter_input" placeholder="编号/邮箱/手机/用户名">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="bm_user_modify_filter_button">查找</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-3-->
+        </div><!-- /.row -->
+    </nav>
+    <section class="bm_user_modify_info">
+        <form class="bm_user_modify_form" id="bm_user_modify_form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="bm_user_modify_form_userName" class="bm_user_modify_form_userName_label"><span class="glyphicon glyphicon-user"></span></label>
+                <section class="bm_user_modify_form_userName_warning" id="bm_user_modify_form_userName_warning"></section>
+                <div class="clearBoth"></div>
+                <input type="text" class="form-control bm_user_modify_form_userName" id="bm_user_modify_form_userName" placeholder="用户名">
+            </div>
+            <div class="form-group">
+                <label for="bm_user_modify_form_password" class="bm_user_modify_form_password_label"><span class="glyphicon glyphicon-lock"></span></label>
+                <section class="bm_user_modify_form_password_warning" id="bm_user_modify_form_password_warning"></section>
+                <div class="clearBoth"></div>
+                <input type="text" class="form-control bm_user_modify_form_password" id="bm_user_modify_form_password" placeholder="密码">
+            </div>
+            <div class="form-group">
+                <label for="bm_user_modify_form_mail" class="bm_user_modify_form_mail_label"><span class="glyphicon glyphicon-envelope"></span></label>
+                <section class="bm_user_modify_form_mail_warning" id="bm_user_modify_form_mail_warning"></section>
+                <div class="clearBoth"></div>
+                <input type="email" class="form-control bm_user_modify_form_mail" id="bm_user_modify_form_mail" placeholder="用户邮箱">
+            </div>
+            <div class="form-group">
+                <label for="bm_user_modify_form_number" class="bm_user_modify_form_number_label"><span class="glyphicon glyphicon-phone-alt"></span></label>
+                <section class="bm_user_modify_form_number_warning" id="bm_user_modify_form_number_warning"></section>
+                <div class="clearBoth"></div>
+                <input type="text" class="form-control bm_user_modify_form_number" id="bm_user_modify_form_number" placeholder="用户号码">
+            </div>
+            <div class="form-group">
+                <label for="bm_user_modify_form_pic">上传头像</label>
+                <input type="file" name="user_modify_img" id="bm_user_modify_form_pic">
+            </div>
+            <!--图片预览-->
+            <div class="imgDiv" id="imgDiv">
+                <img class="img_preView" id="img_preView" src="" alt="">
+            </div>
+
+            <!--用户等级选择-->
+            <label for="bm_user_modify_lv">用户等级</label>
+            <select class="form-control bm_user_modify_lv" id="bm_user_modify_lv">
+                <!--<option>1</option>-->
+            </select>
+
+            <!--用户角色选择-->
+            <label for="bm_user_modify_role">用户角色</label>
+            <select class="form-control bm_user_modify_role" id="bm_user_modify_role">
+                <!--<option>1</option>-->
+            </select>
+
+            <button type="button" class="btn btn-info" id="bm_user_modify_form_submit">确认</button>
+        </form>
+    </section>
+
+</div>
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/jquery.form.js"></script>
+<script src="../js/util_img_preView.js"></script>
+<script src="../js/back_manager_user_modify.js"></script>
 
 </body>
 </html>

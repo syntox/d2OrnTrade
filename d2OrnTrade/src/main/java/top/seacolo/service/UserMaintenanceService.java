@@ -22,4 +22,25 @@ public interface UserMaintenanceService {
      * @return
      */
     ReturnSty<User> SelectUserWithPage(HashMap<String,Object> map);
+
+    /**
+     * 添加用户信息
+     * @param user
+     * @return
+     */
+    ReturnSty UMS_addUser(User user);
+
+    /**
+     * 查找某个用户信息
+     * @param map
+     * @return
+     */
+    ReturnSty SelectUniqueUser(HashMap<String,Object> map);
+
+    /**
+     * 管理员修改某个用户
+     * @param user
+     * @return
+     */
+    ReturnSty modifyOneUser(User user);
 }

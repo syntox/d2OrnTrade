@@ -40,4 +40,13 @@ public class Hero {
     public void setHero_attribute(Hero_attribute hero_attribute) {
         this.hero_attribute = hero_attribute;
     }
+
+    public Hero(String hero_name, String hero_pic, Hero_attribute hero_attribute) {
+        this.hero_name = hero_name;
+        this.hero_pic = hero_pic;
+        this.hero_attribute = hero_attribute;
+    }
+
+    public Hero() {
+    }
 }

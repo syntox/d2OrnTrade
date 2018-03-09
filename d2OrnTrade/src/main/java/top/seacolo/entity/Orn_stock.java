@@ -40,4 +40,7 @@ public class Orn_stock {
     public void setOrn_information(Orn_information orn_information) {
         this.orn_information = orn_information;
     }
+
+    public Orn_stock() {
+    }
 }

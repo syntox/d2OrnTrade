@@ -40,4 +40,7 @@ public class Hero_and_part {
     public void setHero_and_part_desc(String hero_and_part_desc) {
         this.hero_and_part_desc = hero_and_part_desc;
     }
+
+    public Hero_and_part() {
+    }
 }

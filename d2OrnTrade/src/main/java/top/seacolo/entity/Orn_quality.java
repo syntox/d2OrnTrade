@@ -31,4 +31,7 @@ public class Orn_quality {
     public void setQuality_desc(String quality_desc) {
         this.quality_desc = quality_desc;
     }
+
+    public Orn_quality() {
+    }
 }

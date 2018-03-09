@@ -31,4 +31,7 @@ public class Trade_method {
     public void setTrade_method_desc(String trade_method_desc) {
         this.trade_method_desc = trade_method_desc;
     }
+
+    public Trade_method() {
+    }
 }

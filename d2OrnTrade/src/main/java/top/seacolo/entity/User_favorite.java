@@ -43,4 +43,7 @@ public class User_favorite {
     public void setCurrency_orn(Currency_orn currency_orn) {
         this.currency_orn = currency_orn;
     }
+
+    public User_favorite() {
+    }
 }

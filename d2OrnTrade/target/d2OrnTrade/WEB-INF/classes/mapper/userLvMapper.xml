@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.seacolo.dao.UserLvDao">
+
+    <!--查询所有等级信息并返回-->
+    <select id="SelectAllUserLv" resultMap="getUserLv">
+        SELECT
+            ulv.lv_id   lv_id,
+            ulv.lv_name lv_name,
+            ulv.lv_desc lv_desc
+        FROM user_level ulv
+    </select>
+
+    <!--封装成User_level返回
+           private int lv_id;               等级编号
+           private String lv_name;   等级名称
+           private String lv_desc;     等级描述
+     -->
+    <resultMap id="getUserLv" type="User_level">
+        <result property="lv_id" column="lv_id"/>
+        <result property="lv_name" column="lv_name"/>
+        <result property="lv_desc" column="lv_desc"/>
+    </resultMap>
+</mapper>

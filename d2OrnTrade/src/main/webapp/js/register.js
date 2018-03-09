@@ -72,7 +72,7 @@ $(document).ready(function () {
         } else if (input_pwd.length < 6) {
             $("#register-body-pwd-warning").text("密码不得少于6位").css("color", "red");
             register_flag.pwd_tf = false;
-        } else if (input_pwd.length > 12) {
+        } else if (input_pwd.length > 20) {
             $("#register-body-pwd-warning").text("密码过长").css("color", "red");
             register_flag.pwd_tf = false;
         } else if (!pwdReg.test(input_pwd)) {

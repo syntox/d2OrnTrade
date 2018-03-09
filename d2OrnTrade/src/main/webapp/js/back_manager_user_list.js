@@ -1,10 +1,61 @@
 $(document).ready(function () {
 
-    //默认查找所有用户
+    var pageNow = 1;   //默认当前页为1
+    var pageSize = 2;    //默认每页显示2条用户数据
+    var pageInit = 1;    //初始页码
+    var buttonOfPageName = 'bm_user_list';    //页面控制按钮所属页面名称
+    localStorage.setItem("PageInfo", null);
+
     /**
+     * 初始化页面控制按钮
+     */
+    page_ctrl_init(buttonOfPageName,pageInit);
+    /**
+     * 按照pageNow显示pageSize条数据
+     */
+    var storage_pageInfo = selectUser(pageNow,pageSize);
+    localStorage.setItem("PageInfo", JSON.stringify(storage_pageInfo));    //将分页信息转化为JSON字符串保存在浏览器端
+    /**
+     * 初始化页面控制按钮事件
+     */
+    bm_user_list_page_ctrl_events(buttonOfPageName,pageInit,pageSize);
+    /**
+     * 调整页面控制按钮
+     */
+    page_ctrl_change(buttonOfPageName,JSON.parse(localStorage.getItem("PageInfo")));
+
+});
+
+/**
+ *  功能 ： 查找用户并显示
+ * @param pageNow
+ * @param pageSize
+ *
+ * @return pageInfo    页面信息对象
+ */
+function selectUser(pageNow,pageSize) {
+    var pageInfo = null;     //创建页面信息对象
+    /**
+     *     默认查找所有用户(分页)
+     */
+    /**
+     * 返回格式预览
+     *
      * {"retCode":"666",
      *  "retMessage":"查找用户成功",
-     *  "retValue":[
+     *  "retValue":
+     *      {
+     *   "pageInfo":
+     *       {"pageNow":1,
+     *        "pageSize":2,
+     *        "totalCount":3,
+     *        "totalPageCount":2,
+     *        "startPos":0,
+     *        "hasFirst":false,
+     *        "hasPre":false,
+     *        "hasNext":true,
+     *        "hasLast":true}
+     *  "users":[
      *      {"user_id":"1512194584818zDBaK42",
      *       "user_name":"aaaaaaaaa",
      *       "user_pwd":"123456",
@@ -23,15 +74,17 @@ $(document).ready(function () {
      */
     $.ajax({
         type: "post",
+        data: {"pageNow": pageNow, "pageSize": pageSize},
         dataType: "json",
         contentType: "application/x-www-form-urlencoded;charset=UTF-8",
-        url: "/User/selectAllUser",
+        url: "/User/SelectUserWithPage",
         async: false,
         success: function (data) {
             if (data.retCode === "666") {
-                for(var i = 0; i<data.retValue.length; i++){
-                    var user = makeEveryUser(data.retValue[i]);
-                    showAllUsers(user);
+                pageInfo = makePageInfo(data.retValue.pageInfo);     //存储分页信息
+                for (var i = 0; i < data.retValue.users.length; i++) {
+                    var user = makeEveryUser(data.retValue.users[i]);         //存储用户信息
+                    showEveryUser(user,i);     //显示每个用户数据
                 }
             } else if (data.retCode === "555") {
                 alert("没有查找到用户！");
@@ -40,8 +93,9 @@ $(document).ready(function () {
         error: function () {
             alert("服务器发生故障！");
         }
-    })
-});
+    });
+    return pageInfo;     //返回页面信息对象
+}
 
 /**
  * 功能： 组装user对象
@@ -58,22 +112,21 @@ $(document).ready(function () {
  *
  * @param User
  */
-function makeEveryUser(UserOfJava) {
+function makeEveryUser(userOfJava) {
     var thisUser = {
-        "user_id"                     : UserOfJava.user_id,
-        "user_name"               : UserOfJava.user_name,
-        "user_pwd"                 : UserOfJava.user_pwd,
-        "user_mail"                 : UserOfJava.user_mail,
-        "user_phonenumber": UserOfJava.user_phonenumber,
-        "user_pic"                   : UserOfJava.user_pic,
-        "register_date"           : UserOfJava.register_date,
-        "user_role"                  : UserOfJava.user_role.role_name,
-        "user_level"                 : UserOfJava.user_level.lv_name
+        "user_id": userOfJava.user_id,
+        "user_name": userOfJava.user_name,
+        "user_pwd": userOfJava.user_pwd,
+        "user_mail": userOfJava.user_mail,
+        "user_phonenumber": userOfJava.user_phonenumber,
+        "user_pic": userOfJava.user_pic,
+        "register_date": userOfJava.register_date,
+        "user_role": userOfJava.user_role.role_name,
+        "user_level": userOfJava.user_level.lv_name
     };
 
     return thisUser;
 }
-
 
 /**
  * 功能： 动态显示每一个用户信息
@@ -90,10 +143,11 @@ function makeEveryUser(UserOfJava) {
         <td class='bm_user_list_table_users_user_level'><p></p></td>
  </tr>
  * @param User     用户对象
+ * @param i           对象次序
  */
-function showAllUsers(User) {
+function showEveryUser(User, i) {
     $("#bm_user_list_table_users").append(
-    "<tr>"
+    "<tr class='bm_user_list_table_users_tr' id='list_table_users_u"+i+"'>"
     +  "<td class='bm_user_list_table_users_user_id'><p>"+User.user_id+"</p></td>"
     +  "<td class='bm_user_list_table_users_user_name'><p>"+User.user_name+"</p></td>"
     +  "<td class='bm_user_list_table_users_user_pwd'><p>"+User.user_pwd+"</p></td>"
@@ -105,5 +159,49 @@ function showAllUsers(User) {
     +  "<td class='bm_user_list_table_users_user_level'><p>"+User.user_level+"</p></td>"
     +  "</tr>");
 }
+
+/**
+ * 功能 ： bm_user_list分页控制点击事件
+ */
+function bm_user_list_page_ctrl_events(buttonOfPageName, pageInit, pageSize) {
+    /**
+     * 第一页点击事件
+     */
+    $("#bm_user_list_page_ctrl_first").bind("click",{buttonOfPageName:buttonOfPageName, pageInit:pageInit, pageSize:pageSize},function (event) {
+        list_clear_by_class("bm_user_list_table_users_tr");
+        var pageInfo_temp = selectUser(event.data.pageInit, event.data.pageSize);
+        page_ctrl_change(event.data.buttonOfPageName,pageInfo_temp);
+        pageInfo_storage(pageInfo_temp);
+    });
+    /**
+     * 上一页点击事件
+     */
+    $("#bm_user_list_page_ctrl_pre").bind("click",{buttonOfPageName:buttonOfPageName},function (event) {
+        list_clear_by_class("bm_user_list_table_users_tr");
+        var pageInfo_temp = selectUser(JSON.parse(localStorage.getItem("PageInfo")).pageNow-1,JSON.parse(localStorage.getItem("PageInfo")).pageSize);
+        page_ctrl_change(event.data.buttonOfPageName,pageInfo_temp);
+        pageInfo_storage(pageInfo_temp);
+    });
+    /**
+     * 下一页点击事件
+     */
+    $("#bm_user_list_page_ctrl_next").bind("click",{buttonOfPageName:buttonOfPageName},function (event) {
+        list_clear_by_class("bm_user_list_table_users_tr");
+        var pageInfo_temp = selectUser(JSON.parse(localStorage.getItem("PageInfo")).pageNow+1,JSON.parse(localStorage.getItem("PageInfo")).pageSize);
+        page_ctrl_change(event.data.buttonOfPageName,pageInfo_temp);
+        pageInfo_storage(pageInfo_temp);
+    });
+    /**
+     * 尾页点击事件
+     */
+    $("#bm_user_list_page_ctrl_last").bind("click",{buttonOfPageName:buttonOfPageName},function (event) {
+        list_clear_by_class("bm_user_list_table_users_tr");
+        var pageInfo_temp = selectUser(JSON.parse(localStorage.getItem("PageInfo")).totalPageCount,JSON.parse(localStorage.getItem("PageInfo")).pageSize);
+        page_ctrl_change(event.data.buttonOfPageName,pageInfo_temp);
+        pageInfo_storage(pageInfo_temp);
+    });
+}
+
+
 
 

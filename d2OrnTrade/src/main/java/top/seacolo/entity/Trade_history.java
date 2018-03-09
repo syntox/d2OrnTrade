@@ -70,4 +70,7 @@ public class Trade_history {
     public void setTrade_method(Trade_method trade_method) {
         this.trade_method = trade_method;
     }
+
+    public Trade_history() {
+    }
 }

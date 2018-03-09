@@ -43,4 +43,7 @@ public class User_footprint {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public User_footprint() {
+    }
 }

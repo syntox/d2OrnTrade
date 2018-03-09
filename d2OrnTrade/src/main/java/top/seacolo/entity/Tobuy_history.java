@@ -31,4 +31,7 @@ public class Tobuy_history {
     public void setTrade_history(Trade_history trade_history) {
         this.trade_history = trade_history;
     }
+
+    public Tobuy_history() {
+    }
 }

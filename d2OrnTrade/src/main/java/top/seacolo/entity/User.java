@@ -102,6 +102,37 @@ public class User {
         this.user_level = user_level;
     }
 
+    public User(String user_name, String user_pwd, String user_mail, String user_phonenumber, String user_pic) {
+        this.user_name = user_name;
+        this.user_pwd = user_pwd;
+        this.user_mail = user_mail;
+        this.user_phonenumber = user_phonenumber;
+        this.user_pic = user_pic;
+    }
+
+    public User(String user_id, String user_name, String user_pwd, String user_mail, String user_phonenumber, String user_pic, Timestamp register_date, User_role user_role, User_level user_level) {
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.user_pwd = user_pwd;
+        this.user_mail = user_mail;
+        this.user_phonenumber = user_phonenumber;
+        this.user_pic = user_pic;
+        this.register_date = register_date;
+        this.user_role = user_role;
+        this.user_level = user_level;
+    }
+
+    public User(String user_id, String user_name, String user_pwd, String user_mail, String user_phonenumber, User_role user_role, User_level user_level, String user_pic) {
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.user_pwd = user_pwd;
+        this.user_mail = user_mail;
+        this.user_phonenumber = user_phonenumber;
+        this.user_role = user_role;
+        this.user_level = user_level;
+        this.user_pic = user_pic;
+    }
+
     @Override
     public String toString() {
         return "User{" +

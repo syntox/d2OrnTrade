@@ -43,4 +43,8 @@ public class User_level {
     public User_level(int lv_id) {
         this.lv_id = lv_id;
     }
+
+    public User_level(String lv_name) {
+        this.lv_name = lv_name;
+    }
 }

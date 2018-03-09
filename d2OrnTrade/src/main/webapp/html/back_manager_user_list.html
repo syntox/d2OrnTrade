@@ -24,7 +24,7 @@
     </nav>
     <section class="bm_user_list_users">
         <table class="table table-hover table-striped" id="bm_user_list_table_users">
-            <tr class="success">
+            <tr class="success" id="bm_user_list_table_users_title">
                 <th>编号</th>
                 <th>姓名</th>
                 <th>密码</th>
@@ -36,7 +36,7 @@
                 <th>等级</th>
             </tr>
             <!--显示7个用户-->
-            <!--<tr>-->
+            <!--<tr  class="bm_user_list_table_users_tr" id="list_table_users_u1">-->
                 <!--<td class="bm_user_list_table_users_user_id"><p></p></td>-->
                 <!--<td class="bm_user_list_table_users_user_name"><p></p></td>-->
                 <!--<td class="bm_user_list_table_users_user_pwd"><p></p></td>-->
@@ -52,11 +52,11 @@
     <footer class="bm_user_list_page">
         <section class="bm_user_list_page_ctrl">
             <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-info">首页</button>
-                <button type="button" class="btn btn-warning">上一页</button>
-                <button type="button" class="btn btn-success">第1页</button>
-                <button type="button" class="btn btn-warning">下一页</button>
-                <button type="button" class="btn btn-info">尾页</button>
+                <button type="button" class="btn btn-info" id="bm_user_list_page_ctrl_first">首页</button>
+                <button type="button" class="btn btn-warning" id="bm_user_list_page_ctrl_pre">上一页</button>
+                <button type="button" class="btn btn-success" id="bm_user_list_page_ctrl_now">第?页</button>
+                <button type="button" class="btn btn-warning" id="bm_user_list_page_ctrl_next">下一页</button>
+                <button type="button" class="btn btn-info" id="bm_user_list_page_ctrl_last">尾页</button>
             </div>
         </section>
     </footer>
@@ -67,6 +67,7 @@
 <script src="../js/jquery-3.2.1.js"></script>
 <script src="../bootstrap_v3/js/bootstrap.js"></script>
 <script src="../js/util_long_to_date.js"></script>
+<script src="../js/util_page_ctrl.js"></script>
 <script src="../js/back_manager_user_list.js"></script>
 </body>
 </html>

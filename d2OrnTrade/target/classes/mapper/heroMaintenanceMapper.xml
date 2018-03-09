@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.seacolo.dao.HeroMaintenanceDao">
+    <!--添加一个英雄-->
+    <insert id="insertOneHero" parameterType="Hero" useGeneratedKeys="true" keyProperty="hero_id">
+        INSERT INTO hero (
+            hero_name,
+            hero_pic,
+            attr_id)
+            VALUE (
+            #{hero.hero_name},
+            #{hero.hero_pic},
+            #{hero.hero_attribute.attr_id})
+    </insert>
+
+</mapper>

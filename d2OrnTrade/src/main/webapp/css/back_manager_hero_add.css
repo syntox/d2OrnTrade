@@ -1,0 +1,66 @@
+.clearBoth{
+    content: "";
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+.bm_hero_add_main {
+    height: 700px;
+    background-color: rgba(62, 173, 245, 0.11);
+    box-shadow: 0 0 10px 10px rgba(14, 144, 210, 0.11) inset;
+}
+
+.bm_hero_add_form {
+    width: 70%;
+    height: 90%;
+    margin-top: 35px;
+    margin-left: 15%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-left: 15%;
+    padding-top: 5%;
+    padding-bottom: 15px;
+}
+
+.bm_hero_add_form input {
+    width: 50%;
+}
+
+.imgDiv{
+    width: 100px;
+    height: 100px;
+    border: solid 1px rgba(1, 1, 1, 0.5);
+    box-shadow: 0 0 3px 3px rgba(4, 7, 14, 0.3) inset;
+    margin-bottom: 15px;
+}
+
+.img_preView {
+    width: 98px;
+    height: 98px;
+    /*border: solid 1px rgba(1, 1, 1, 0.5);*/
+}
+
+.bm_hero_add_form_heroName_label,
+.bm_hero_add_form_password_label,
+.bm_hero_add_form_password_checking_label,
+.bm_hero_add_form_mail_label,
+.bm_hero_add_form_number_label{
+    float: left;
+    width: 20%;
+}
+
+.bm_hero_add_form_heroName_warning,
+.bm_hero_add_form_password_warning,
+.bm_hero_add_form_password_checking_warning,
+.bm_hero_add_form_mail_warning,
+.bm_hero_add_form_number_warning{
+    float: left;
+    width: 28%;
+    text-align: right;
+    color: red;
+}
+
+#bm_hero_add_attr{
+    width: 150px;
+    margin-bottom: 15px;
+}
