@@ -212,7 +212,28 @@ $(document).ready(function () {
                 async: false,
                 success: function (data) {
                     if (data.retCode === "666") {
-                        alert(data.retMessage);
+                        /**
+                         * 添加用户资产
+                         */
+                        $.ajax({
+                            type: "post",
+                            dataType: "json",
+                            data: {"user_id":data.retValue},
+                            contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                            url: "/UserAssets/addUserAssetsInfo",
+                            async: false,
+                            success: function (data) {
+                                if(data.retCode === "666"){
+                                    //跳转登陆
+                                    location.href = "../html/login.html";
+                                }else {
+                                    alert("异常!");
+                                }
+                            },
+                            error:function () {
+                                alert("异常！");
+                            }
+                        })
                     } else if (data.retCode === "201") {
                         // 邮箱注册失败
                         alert(data.retMessage);
@@ -227,7 +248,7 @@ $(document).ready(function () {
                         alert(data.retMessage);
                     }
                 },
-                error: function () {
+                error: function (data) {
                     alert("服务器发生故障！");
                 }
             })

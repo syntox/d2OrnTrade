@@ -2,6 +2,7 @@ package top.seacolo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.seacolo.controller.UserAssetsController;
 import top.seacolo.dao.UserLoginAndRegisterDao;
 import top.seacolo.entity.User;
 import top.seacolo.entity.User_level;
@@ -35,6 +36,7 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
         User user = userLoginAndRegisterDao.selectUserByMailAndPwd(user_mail,user_pwd);
         if(user != null){
             returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetValue(user);    //携带用户信息
             returnSty.setRetMessage("登陆成功");
         }else {
             returnSty.setRetCode(ConstantUtil.LOGINBYMAILFAIL);
@@ -55,6 +57,7 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
         User user = userLoginAndRegisterDao.selectUserByNameAndPwd(user_name,user_pwd);
         if (user != null){
             returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetValue(user);    //携带用户信息
             returnSty.setRetMessage("登陆成功");
         }else {
             returnSty.setRetCode(ConstantUtil.LOGINBYNAMEFAIL);
@@ -88,6 +91,7 @@ public class LoginOrRegisterServiceImpl implements LoginOrRegisterService {
         int count = userLoginAndRegisterDao.insertOneUser(user);
         if(count > 0){
             returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetValue(user_id);
             returnSty.setRetMessage("邮箱注册成功！");
             return returnSty;
         }else {

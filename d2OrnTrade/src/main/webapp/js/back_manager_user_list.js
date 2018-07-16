@@ -202,6 +202,10 @@ function bm_user_list_page_ctrl_events(buttonOfPageName, pageInit, pageSize) {
     });
 }
 
+function pageInfo_storage(pageInfo) {
+    localStorage.setItem("PageInfo", JSON.stringify(pageInfo));
+}
+
 
 
 

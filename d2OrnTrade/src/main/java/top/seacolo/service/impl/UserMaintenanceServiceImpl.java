@@ -50,11 +50,11 @@ public class UserMaintenanceServiceImpl implements UserMaintenanceService {
         PageUtil pageInfo = new PageUtil();
         HashMap<String, Object> pageMap = new HashMap<String, Object>();
 
-        int usersCount = userMaintenanceDao.SelectCountAllUsers();          //查询用户总数
-        pageInfo.pageInfoSet((Integer) map.get("pageNow"), (Integer) map.get("pageSize"), usersCount); //获取分页信息
-        pageMap.put("startPos", pageInfo.getStartPos());                         //查询偏移位置
-        pageMap.put("pageSize", pageInfo.getPageSize());                     //查询大小
-        List<User> users = userMaintenanceDao.SelectUserWithPage(pageMap);        //分页查询用户
+        int usersCount = userMaintenanceDao.SelectCountAllUsers();    //查询用户总数
+        pageInfo.pageInfoSet((Integer) map.get("pageNow"), (Integer) map.get("pageSize"), usersCount);     //获取分页信息
+        pageMap.put("startPos", pageInfo.getStartPos());    //查询偏移位置
+        pageMap.put("pageSize", pageInfo.getPageSize());    //查询大小
+        List<User> users = userMaintenanceDao.SelectUserWithPage(pageMap);    //分页查询用户
 
         if (users != null) {
             returnSty.setRetCode(ConstantUtil.SUCCESS);
@@ -98,6 +98,7 @@ public class UserMaintenanceServiceImpl implements UserMaintenanceService {
         int count = userMaintenanceDao.insertOneUser(user_temp);
         if (count > 0) {
             returnSty.setRetCode(ConstantUtil.SUCCESS);
+            returnSty.setRetValue(user_id);
             returnSty.setRetMessage("用户添加成功！");
             return returnSty;
         } else {

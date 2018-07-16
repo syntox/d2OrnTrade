@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>英雄查询与展示</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/back_manager_hero_list.css"/>
+    <link rel="stylesheet" href="../bootstrap_v3/css/bootstrap.css"/>
+</head>
+<body>
+<div class="container bm_hero_list_main">
+    <nav class="bm_hero_list_filter">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <label id="" for="bm_hero_list_attr_select">选择属性</label>
+                    <select class="form-control col-md-9" id="bm_hero_list_attr_select">
+                        <option>不限</option>
+                        <option>力量</option>
+                        <option>智力</option>
+                        <option>敏捷</option>
+                    </select>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-3-->
+        </div><!-- /.row -->
+    </nav>
+    <section class="bm_hero_list_heros">
+        <table class="table table-hover table-striped" id="bm_hero_list_table_heros">
+            <tr class="success" id="bm_hero_list_table_heros_title">
+                <th>编号</th>
+                <th>英雄名称</th>
+                <th>英雄图片</th>
+                <th>属性</th>
+            </tr>
+            <!--显示7个用户-->
+            <!--<tr  class="bm_hero_list_table_heros_tr" id="list_table_heros_u1">-->
+            <!--<td class="bm_hero_list_table_heros_hero_id"><p></p></td>-->
+            <!--<td class="bm_hero_list_table_heros_hero_name"><p></p></td>-->
+            <!--<td class="bm_hero_list_table_heros_hero_pic"><img src=''></img></td>-->
+            <!--<td class="bm_hero_list_table_heros_hero_attr"><p></p></td>-->
+            <!--</tr>-->
+        </table>
+    </section>
+    <footer class="bm_hero_list_page">
+        <section class="bm_hero_list_page_ctrl">
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-info" id="bm_hero_list_page_ctrl_first">首页</button>
+                <button type="button" class="btn btn-warning" id="bm_hero_list_page_ctrl_pre">上一页</button>
+                <button type="button" class="btn btn-success" id="bm_hero_list_page_ctrl_now">第?页</button>
+                <button type="button" class="btn btn-warning" id="bm_hero_list_page_ctrl_next">下一页</button>
+                <button type="button" class="btn btn-info" id="bm_hero_list_page_ctrl_last">尾页</button>
+            </div>
+        </section>
+    </footer>
+
+</div>
+
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../bootstrap_v3/js/bootstrap.js"></script>
+<script src="../js/util_long_to_date.js"></script>
+<script src="../js/util_page_ctrl.js"></script>
+<script src="../js/back_manager_hero_list.js"></script>
+</body>
+</html>

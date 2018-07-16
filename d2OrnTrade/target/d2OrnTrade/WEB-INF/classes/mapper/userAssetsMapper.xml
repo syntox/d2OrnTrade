@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.seacolo.dao.UserAssetsDao">
+
+
+    <insert id="addUserAssets" parameterType="User_assets">
+        INSERT INTO user_assets (
+            assets_id,
+            available_assets,
+            unavailable_assets,
+            all_assets,
+            user_id)
+            VALUE (
+            #{user_assets.assets_id},
+            #{user_assets.available_assets},
+            #{user_assets.unavailable_assets},
+            #{user_assets.all_assets},
+            #{user_assets.user.user_id})
+    </insert>
+
+
+    <!--查询某个用户的资产并返回其信息-->
+    <select id="selectUserAssets" parameterType="Map" resultMap="getUserAssets">
+        SELECT
+            ua.assets_id          assets_id,
+            ua.available_assets   available_assets,
+            ua.unavailable_assets unavailable_assets,
+            ua.all_assets         all_assets,
+            ua.user_id            user_id
+        FROM user_assets ua
+        WHERE ua.user_id = #{user_id}
+    </select>
+
+    <!--private String assets_id;           //资产编号-->
+    <!--private double available_assets;    //可用资产-->
+    <!--private double unavailable_assets;  //冻结资产-->
+    <!--private double all_assets;          //总资产-->
+    <!--private User user;                  //用户 FK-->
+
+    <resultMap id="getUserAssets" type="User_assets">
+        <result property="assets_id" column="assets_id"/>
+        <result property="available_assets" column="available_assets"/>
+        <result property="unavailable_assets" column="unavailable_assets"/>
+        <result property="all_assets" column="all_assets"/>
+        <association property="user" javaType="User">
+            <result property="user_id" column="user_id"/>
+        </association>
+    </resultMap>
+</mapper>

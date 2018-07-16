@@ -4,8 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="top.seacolo.dao.HeroMaintenanceDao">
+    <select id="SelectCountAllHeros" resultType="int">
+        SELECT count(*)
+        FROM hero
+    </select>
+
+    <select id="SelectCountAllHerosWithAttr" parameterType="Map" resultType="int">
+        SELECT count(*)
+        FROM hero h, hero_attribute ha
+        WHERE h.attr_id = ha.attr_id
+              AND ha.attr_name = #{attr_name}
+    </select>
+
     <!--添加一个英雄-->
-    <insert id="insertOneHero" parameterType="Hero" useGeneratedKeys="true" keyProperty="hero_id">
+    <insert id="insertOneHero" useGeneratedKeys="true" parameterType="Hero" keyProperty="hero.hero_id">
         INSERT INTO hero (
             hero_name,
             hero_pic,
@@ -15,5 +27,45 @@
             #{hero.hero_pic},
             #{hero.hero_attribute.attr_id})
     </insert>
+
+    <!--分页查找所有英雄(不限属性)-->
+    <select id="SelectHeroWithPage" parameterType="Map" resultMap="getHero">
+        SELECT
+        h.hero_id hero_id,
+        h.hero_name hero_name,
+        h.hero_pic hero_pic,
+        ha.attr_name attr_name
+        FROM hero h,
+        hero_attribute ha
+        WHERE h.attr_id = ha.attr_id
+        <if test="startPos != null and pageSize != null">
+            LIMIT #{startPos},#{pageSize}
+        </if>
+    </select>
+
+    <!--分页查找所有英雄(限属性)-->
+    <select id="SelectHeroWithPageAndAttr" parameterType="Map" resultMap="getHero">
+        SELECT
+        h.hero_id hero_id,
+        h.hero_name hero_name,
+        h.hero_pic hero_pic,
+        ha.attr_name attr_name
+        FROM hero h,
+        hero_attribute ha
+        WHERE h.attr_id = ha.attr_id
+        AND ha.attr_name = #{attr_name}
+        <if test="startPos != null and pageSize != null">
+            LIMIT #{startPos},#{pageSize}
+        </if>
+    </select>
+
+    <resultMap id="getHero" type="Hero">
+        <result property="hero_id" column="hero_id"/>
+        <result property="hero_name" column="hero_name"/>
+        <result property="hero_pic" column="hero_pic"/>
+        <association property="hero_attribute" javaType="Hero_attribute">
+            <result property="attr_name" column="attr_name"/>
+        </association>
+    </resultMap>
 
 </mapper>

@@ -38,7 +38,27 @@ $(document).ready(function () {
                     type: 'POST',
                     url: '/User/AddUserInfo',
                     success: function (data) {
-                        alert("添加用户成功");
+                        /**
+                         * 添加用户资产
+                         */
+                        $.ajax({
+                            type: "post",
+                            dataType: "json",
+                            data: {"user_id":data.retValue},
+                            contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                            url: "/UserAssets/addUserAssetsInfo",
+                            async: false,
+                            success: function (data) {
+                                if(data.retCode === "666"){
+                                    alert("添加用户成功");
+                                }else {
+                                    alert("异常!");
+                                }
+                            },
+                            error:function () {
+                                alert("异常！");
+                            }
+                        })
                     },
                     error: function () {
                         alert("上传失败，服务器异常");

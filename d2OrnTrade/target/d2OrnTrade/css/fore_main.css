@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.clearBoth {
+    content: "";
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+.fleft {
+    float: left;
+}
+
+.fright {
+    float: right;
+}
+
+.black-bg{
+    margin-top: 116px;
+    background-color: rgb(21,25,29);
+}
+
+.fore-main-body {
+    padding-top: 15px;
+    height: 800px;
+    background-position: -600px;
+    background: url("../img/dota2bg.png") no-repeat;
+}
+
+.fore-main-body-mid{
+    height: 300px;
+}
+
+.fore-main-login-check {
+    background: rgba(0,0,0,0.4);
+    height: 300px;
+}

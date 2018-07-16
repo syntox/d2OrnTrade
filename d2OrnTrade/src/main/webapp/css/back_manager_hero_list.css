@@ -1,0 +1,48 @@
+.bm_hero_list_main {
+    height: 650px;
+    background-color: rgba(62, 173, 245, 0.11);
+    box-shadow: 0 0 10px 10px rgba(14, 144, 210, 0.11) inset;
+}
+
+.bm_hero_list_filter {
+    height: 70px;
+    margin: 15px;
+    background-color: rgba(27, 31, 42, 0.02);
+    padding: 15px;
+}
+
+.bm_hero_list_heros{
+    height: 450px;
+    margin: 15px;
+    padding: 15px;
+    background-color:  rgba(27, 31, 42, 0.02);
+}
+
+.bm_hero_list_page{
+    height: 70px;
+    margin: 15px;
+    padding: 15px;
+    background-color:  rgba(27, 31, 42, 0.02);
+}
+
+.bm_hero_list_heros td {
+    height: 50px;
+}
+
+.bm_hero_list_page_ctrl{
+    width: 40%;
+    margin: 0 auto;
+}
+
+#bm_hero_list_table_heros tr th{
+    text-align: center;
+}
+
+#bm_hero_list_table_heros tr td{
+    text-align: center;
+}
+
+#bm_hero_list_table_heros .bm_hero_list_table_heros_hero_pic img{
+    height: 30px;
+    width: auto;
+}

@@ -29,7 +29,7 @@ public interface UserMaintenanceDao {
      * @param map
      * @return
      */
-    List<User> SelectUserWithPage(HashMap<String,Object>  map);
+    List<User> SelectUserWithPage(HashMap<String,Object> map);
 
     /**
      * 添加一条用户

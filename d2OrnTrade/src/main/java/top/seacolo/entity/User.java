@@ -92,6 +92,10 @@ public class User {
     public User() {
     }
 
+    public User(String user_id) {
+        this.user_id = user_id;
+    }
+
     public User(String user_id, String user_name, String user_pwd, String user_mail, Timestamp register_date, User_role user_role, User_level user_level) {
         this.user_id = user_id;
         this.user_name = user_name;

@@ -71,6 +71,6 @@ function list_clear_by_class(class_name) {
  * 全局存储分页控制信息
  * @param pageInfo
  */
-function pageInfo_storage(pageInfo) {
-    localStorage.setItem("PageInfo", JSON.stringify(pageInfo));
-}
+// function pageInfo_storage(pageInfo) {
+//     localStorage.setItem("PageInfo", JSON.stringify(pageInfo));
+// }

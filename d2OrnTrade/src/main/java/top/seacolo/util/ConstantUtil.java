@@ -20,6 +20,10 @@ public class ConstantUtil {
     public static String MODIFYONEUSERFAIL = "213";    //修改某个用户失败
     public static String SELECTALLHEROATTRFAIL = "214";    //查找所有英雄属性失败
     public static String INSERTONEHEROFAIL = "215";    //添加英雄失败
+    public static String SELECTHEROWITHPAGEFAIL = "216";    //查找所有英雄失败
+    public static String SELECTHEROWITHPAGEANDATTRFAIL = "217";    //查找某种属性英雄失败
+    public static String INSERTADMINUSERASSETSFAIL = "218";    //添加用户的默认资产失败
+    public static String SELECTADMINUSERASSETSFAIL = "219";    //查找用户的默认资产失败
 
 
 }
